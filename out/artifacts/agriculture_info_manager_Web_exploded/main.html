@@ -56,14 +56,16 @@
 <script type="text/javascript">
     $(document).ready(function (){
         $('#topFrame').attr('src','top.html?_='+Math.random());
-        console.log("2333");
+    });
+    $(document).ready(function (){
+        $('#rightFrame').attr('src','imgtable.html?_='+Math.random());
     });
 </script>
 <div rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
     <iframe src="top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame"></iframe>
   <div cols="187,*" frameborder="no" border="0" framespacing="0">
     <iframe src="left_main.html" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame"></iframe>
-    <iframe src="imglist.html" name="rightFrame" id="rightFrame" title="rightFrame"></iframe>
+    <iframe src="imgtable.html" name="rightFrame" id="rightFrame" title="rightFrame"></iframe>
   </div>
 </div>
 <!--<noframes><body>-->
