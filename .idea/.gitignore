@@ -1,0 +1,22 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 33589ba1017fb2b78fd3b17545cf1a04f389a512
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+<<<<<<< HEAD
+=======
+=======
+# Datasource local storage ignored files
+/../../../../../../:\Users\Sherlock\IdeaProjects\agriculture_info_manager\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+>>>>>>> a2ff5d7992c70fe3ffe2dac24e3c58f44e2738ca
+>>>>>>> 33589ba1017fb2b78fd3b17545cf1a04f389a512
