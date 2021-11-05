@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/agricultureGreenhouseManager.iml" filepath="$PROJECT_DIR$/agricultureGreenhouseManager.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/agriculture_info_manager.iml" filepath="$PROJECT_DIR$/agriculture_info_manager.iml" />
+>>>>>>> a2ff5d7992c70fe3ffe2dac24e3c58f44e2738ca
     </modules>
   </component>
 </project>
