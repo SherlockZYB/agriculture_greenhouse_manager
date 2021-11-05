@@ -1,4 +1,6 @@
 package warningModule.file;
 
-public class ServletAction {
+import javax.servlet.http.HttpServlet;
+
+public class ServletAction extends HttpServlet {
 }

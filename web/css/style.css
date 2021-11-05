@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 @charset "utf-8";
-=======
+
 ﻿@charset "utf-8";
->>>>>>> a2ff5d7992c70fe3ffe2dac24e3c58f44e2738ca
+
 /* CSS Document */
 /***
  * 5imoban
@@ -35,13 +35,13 @@ h2{font-weight:normal;}
 .logintop ul li{float:left; margin-left:20px; line-height:47px;}
 .logintop ul li a{color:#afc5d2;}
 .logintop ul li a:hover{color:#fff;}
-<<<<<<< HEAD
+
 .loginbody{background:url(../images/loginbg3.png) no-repeat center center; width:100%; height:100%; overflow:hidden; position:absolute; top:47px;}
 .systemlogo{background:url(../images/loginlogo.png) no-repeat center;width:100%; height:71px; margin-top:10px;}
-=======
+
 .loginbody{background:url(../images/loginbg3.png) no-repeat center center; width:100%; height:585px; overflow:hidden; position:absolute; top:47px;}
 .systemlogo{background:url(../images/loginlogo.png) no-repeat center;width:100%; height:71px; margin-top:75px;}
->>>>>>> a2ff5d7992c70fe3ffe2dac24e3c58f44e2738ca
+
 .loginbox{width:692px; height:336px; background:url(../images/logininfo.png) no-repeat; margin-top:30px;}
 .loginbox ul{margin-top:88px; margin-left:285px;}
 .loginbox ul li{margin-bottom:25px;}
