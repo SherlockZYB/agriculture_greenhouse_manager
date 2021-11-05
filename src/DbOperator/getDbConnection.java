@@ -6,15 +6,20 @@ import java.sql.*;
 public class getDbConnection {
 
     // 数据库链接相关常量
+
     final String http="jdbc:mysql://www.ylxteach.net:3366/";
     final String dbName="xm08";
+
+
     private Statement statement;
 
     // 构造函数，
     public getDbConnection(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
+
             String connStr=http+dbName+"?user=Administrator&password=XWClassroom20202023&useUnicode=true&characterEncoding=UTF-8";
+
             Connection connection= DriverManager.getConnection(connStr);
             statement=connection.createStatement();
         }catch (Exception e){

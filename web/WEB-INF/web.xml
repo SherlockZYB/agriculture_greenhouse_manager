@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+
     <!--此处注册servlet-->
     <servlet>
         <servlet-name>ServletAction</servlet-name>
@@ -15,4 +16,16 @@
         <url-pattern>/ServletAction</url-pattern>
     </servlet-mapping>
     
+
+    <!-- ================  warningModule begin =================           -->
+    <servlet>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <servlet-class>warningModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <url-pattern>/warningModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  warningModule end =================           -->
+
 </web-app>

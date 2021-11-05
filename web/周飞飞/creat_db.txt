@@ -1,0 +1,19 @@
+drop table warning_file;
+
+-- 预警信息数据表
+-- 预警信息id warning_id
+-- 预警信息对应的大棚id greenhouse_id
+-- 预警信息对应的大棚name greenhouse_name
+-- 预警信息内容 warning_record
+-- 预警发出时间 warniing_datetime
+
+create table warning_file
+(
+  warning_id char(10),
+  warning_record varchar(255),
+  greenhouse_id char(10),
+  greenhouse_name varchar(20),
+  warning_datetime datetime(),
+
+  primary key(warning_id)
+);
