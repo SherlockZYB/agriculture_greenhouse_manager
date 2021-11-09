@@ -215,7 +215,7 @@ h2{font-weight:normal;}
 
 
 /*tip*/
-.tip{width:485px; height:260px; position:absolute;top:10%; left:30%;background:#fcfdfd;box-shadow:1px 8px 10px 1px #9b9b9b;border-radius:1px;behavior:url(../js/pie.htc); display:none; z-index:111111;}
+.tip{width:800px; height:400px; position:absolute;top:10%; left:30%;background:#fcfdfd;box-shadow:1px 8px 10px 1px #9b9b9b;border-radius:1px;behavior:url(../js/pie.htc); display:none; z-index:111111;}
 .tiptop{height:40px; line-height:40px; background:url(../images/tcbg.gif)  repeat-x; cursor:pointer;}
 .tiptop span{font-size:14px; font-weight:bold; color:#fff;float:left; text-indent:20px;}
 .tiptop a{display:block; background:url(../images/close.png) no-repeat; width:22px; height:22px;float:right;margin-right:7px; margin-top:10px; cursor:pointer;}

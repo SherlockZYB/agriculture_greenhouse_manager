@@ -27,7 +27,9 @@ $(function(){
 	});
 })	
 </script>
-
+<script type="text/javascript"> //在这里放置要跳转的链接
+    const warning_table="warning_module/warning_table.html";
+</script>
 
 </head>
 
@@ -80,12 +82,13 @@ $(function(){
     </dd>
 
 
-    <dd><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
-        <ul class="menuson">
-            <li><cite></cite><a href="#">查看预警信息</a><i></i></li>
-            <!--        查看预警信息内包含内容：预警信息表（导出、排序、统计）-->
-            <li><cite></cite><a href="#">处理预警信息</a><i></i></li>
-        </ul>
+    <dd onclick="changeRightFrame(warning_table)"><div class="title"><span><img src="images/leftico04.png" />
+    </span>预警管理</div>
+<!--        <ul class="menuson">-->
+<!--            <li><cite></cite><a href="#">查看预警信息</a><i></i></li>-->
+<!--            &lt;!&ndash;        查看预警信息内包含内容：预警信息表（导出、排序、统计）&ndash;&gt;-->
+<!--            <li><cite></cite><a href="#">处理预警信息</a><i></i></li>-->
+<!--        </ul>-->
     </dd>
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>设备管理</div>
@@ -115,5 +118,12 @@ $(function(){
         </ul>
     </dd>
     </dl>
+<script type="text/javascript">
+    function changeRightFrame(link){
+        console.log("跳转模块");
+        window.parent.frames["rightFrame"].location=link+'?_='+Math.random();
+    }
+</script>
 </body>
+
 </html>

@@ -58,8 +58,12 @@
         $('#topFrame').attr('src','top.html?_='+Math.random());
     });
     $(document).ready(function (){
-        $('#rightFrame').attr('src','imgtable.html?_='+Math.random());
+        $('#rightFrame').attr('src','warning_module/warning_table.html?_='+Math.random());
     });
+    $(document).ready(function (){
+        $('#leftFrame').attr('src','left_main.html?_='+Math.random());
+    });
+
 </script>
 <body onload="init();">
 
@@ -77,12 +81,12 @@
 
 </html>
 <script>
-     function init(){
-         const account = sessionStorage.getItem("account");
-         const level=sessionStorage.getItem("level");
-         alert("等级:"+level);
-         alert("用户名:"+account);
-     }
+     // function init(){
+     //     const account = sessionStorage.getItem("account");
+     //     const level=sessionStorage.getItem("level");
+     //     alert("等级:"+level);
+     //     alert("用户名:"+account);
+     // }
 </script>
 
 

@@ -123,6 +123,16 @@ public class ServletAction extends HttpServlet {
                 }
             }
 
+            case "showWarningTable":
+                try {
+                    responseBack(req,resp,sqlOp.showWarningTable());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+
+
             default:{
                 break;
             }

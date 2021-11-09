@@ -1,12 +1,18 @@
 package DbOperator;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class sqlOperator {
 
@@ -80,5 +86,29 @@ public class sqlOperator {
                 return 0;
             }
         }
+    }
+
+    public JSONObject showWarningTable() throws SQLException, JSONException {
+        String sql="select * from warning_file";
+        ArrayList jsonList=new ArrayList();
+        try {
+            ResultSet rs = statement.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int fieldCount = rsmd.getColumnCount();
+            while (rs.next()) {
+                Map map = new HashMap();
+                for (int i = 0; i < fieldCount; i++) {
+                    map.put(rsmd.getColumnName(i + 1), rs.getString(rsmd.getColumnName(i + 1)));
+                }
+                jsonList.add(map);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[queryRecord]查询数据库出现错误：" + sql);
+        }
+        JSONObject json=new JSONObject();
+        json.put("warning_list",jsonList);
+        return json;
     }
 }
