@@ -1,4 +1,4 @@
-drop table checkingIn_file;
+drop table checkingin_file;
 
 -- 打卡管理数据表
 -- 打卡信息id checkingIn_id
