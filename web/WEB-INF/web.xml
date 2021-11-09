@@ -27,5 +27,16 @@
         <url-pattern>/warningModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  warningModule end =================           -->
+         
+    <!-- ================  workingModule begin =================           -->
+    <servlet>
+        <servlet-name>workingModule_file_servlet_action</servlet-name>
+        <servlet-class>workingModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workingModule_file_servlet_action</servlet-name>
+        <url-pattern>/workingModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  workingModule end =================           -->
 
 </web-app>
