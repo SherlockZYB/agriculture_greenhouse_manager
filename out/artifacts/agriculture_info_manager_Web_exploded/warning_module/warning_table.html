@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>预警信息</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script language="javascript">
+        $(function(){
+            //导航切换
+            $(".imglist li").click(function(){
+                $(".imglist li.selected").removeClass("selected")
+                $(this).addClass("selected");
+            })
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".click").click(function(){
+                $(".tip").fadeIn(200);
+            });
+
+            $(".tiptop a").click(function(){
+                $(".tip").fadeOut(200);
+            });
+
+            $(".sure").click(function(){
+                $(".tip").fadeOut(100);
+            });
+
+            $(".cancel").click(function(){
+                $(".tip").fadeOut(100);
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">预警管理</a></li>
+    </ul>
+</div>
+
+<div class="rightinfo">
+
+    <div class="tools">
+
+        <ul class="toolbar">
+            <li id="addRecordBtn" name="addRecordBtn" onclick="onAddRecord()"><span><img src="../images/t01.png" /></span>添加</li>
+            <li id="modifyRecordBtn" name="modifyRecordBtn" onclick="onModifyRecord()"><span><img src="../images/t02.png" /></span>修改</li>
+            <li id="deleteRecordBtn" name="deleteRecordBtn" onclick="onDeleteRecord()"><span><img src="../images/t03.png" /></span>删除</li>
+            <li id="queryRecordBtn" name="mqueryRecordBtn" onclick="onQueryRecord()"><span><img src="../images/t04.png" /></span>查询</li>
+        </ul>
+
+
+<!--        <ul class="toolbar1">-->
+<!--            <li><span><img src="../images/t05.png" /></span>设置</li>-->
+<!--        </ul>-->
+
+    </div>
+
+
+    <table class="imgtable">
+
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>内容</th>
+            <th>大棚编号</th>
+            <th>大棚名称</th>
+            <th>时间</th>
+        </tr>
+        </thead>
+
+        <tbody id="warning_list">
+
+        <tr>
+            <td>1</td>
+            <td>后台界面<p>ID: 82122</p></td>
+            <td>开放浏览</td>
+            <td>admin</td>
+            <td>已审核</td>
+        </tr>
+
+
+        </tbody>
+
+    </table>
+
+    </div>
+
+<div class="tip">
+    <div class="tiptop"><span>增加预警信息</span><a></a></div>
+
+    <div class="tipinfo">
+        <span><img src="../images/ticon.png" /></span>
+        <div class="tipright">
+            <input id="warning_name" type="text" class="form-control" placeholder="输入预警信息内容">
+            <span class="help-block">请填写</span>
+            <input id="greenhouse_id" type="text" class="form-control" placeholder="输入预警信息所在大棚编号">
+            <span class="help-block">请填写</span>
+        </div>
+    </div>
+    <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    $('.imgtable tbody tr:odd').addClass('odd');
+</script>
+<script type="text/javascript" src="warning_table.js"></script>
+</body>
+
+</html>
