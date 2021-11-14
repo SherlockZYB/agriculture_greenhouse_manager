@@ -58,15 +58,9 @@
         $('#topFrame').attr('src','top.html?_='+Math.random());
     });
     $(document).ready(function (){
-        $('#rightFrame').attr('src','warning_module/warning_table.html?_='+Math.random());
+        $('#rightFrame').attr('src','imgtable.html?_='+Math.random());
     });
-    $(document).ready(function (){
-        $('#leftFrame').attr('src','left_main.html?_='+Math.random());
-    });
-
 </script>
-<body onload="init();">
-
 <div rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
     <iframe src="top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame"></iframe>
   <div cols="187,*" frameborder="no" border="0" framespacing="0">
@@ -77,17 +71,16 @@
 <!--<noframes><body>-->
 <!--</body></noframes>-->
 
-</body>
 
 </html>
+
 <script>
-     // function init(){
-     //     const account = sessionStorage.getItem("account");
-     //     const level=sessionStorage.getItem("level");
-     //     alert("等级:"+level);
-     //     alert("用户名:"+account);
-     // }
+     function init(){
+         const account = sessionStorage.getItem("account");
+         const level=sessionStorage.getItem("level");
+         // alert("等级:"+level);
+         // alert("用户名:"+account);
+     }
 </script>
 
 
-</html>

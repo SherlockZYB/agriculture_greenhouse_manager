@@ -126,12 +126,60 @@ public class ServletAction extends HttpServlet {
             case "showWarningTable":
                 try {
                     responseBack(req,resp,sqlOp.showWarningTable());
-                } catch (JSONException e) {
+                } catch (JSONException | SQLException e) {
                     e.printStackTrace();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
                 }
+                break;
 
+            case "addWarningRecord":
+                String warningRecord=req.getParameter("warning_record");
+                String greenhouseId=req.getParameter("greenhouse_id");
+
+                try {
+                    if(sqlOp.addWarningRecord(warningRecord,greenhouseId)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "deleteWarningRecord":
+                String warningId=req.getParameter("id");
+
+                try {
+                    if(sqlOp.deleteWarningRecord(warningId)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "modifyWarningRecord":
+                String modifyWarningRecord=req.getParameter("warning_record");
+                int modifyWarningId=Integer.parseInt(req.getParameter("warning_id"));
+                String modifyGreenhouseId=req.getParameter("greenhouse_id");
+
+                try {
+                    if(sqlOp.modifyWarningRecord(modifyWarningRecord,modifyGreenhouseId,modifyWarningId)){
+                        jsonObject.put("ok",200);
+                        System.out.println("成功修改");
+                    }else{
+                        System.out.println("修改失败");
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
 
             default:{
                 break;
@@ -162,6 +210,4 @@ public class ServletAction extends HttpServlet {
 //                e.printStackTrace();
             }
         }
-
-
 }

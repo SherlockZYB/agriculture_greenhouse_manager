@@ -4,11 +4,10 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -108,7 +107,56 @@ public class sqlOperator {
             System.out.println("[queryRecord]查询数据库出现错误：" + sql);
         }
         JSONObject json=new JSONObject();
-        json.put("warning_list",jsonList);
+        json.put("aaData",jsonList);
         return json;
+    }
+
+    public Boolean addWarningRecord(String warningRecord,String greenhouseId) throws SQLException, JSONException {
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        String sql="insert into warning_file(warning_record,greenhouse_id,greenhouse_name,warning_datetime)";
+        sql=sql+" values('"+warningRecord+"'";
+        sql=sql+" ,'"+greenhouseId+"'";
+        sql=sql+" ,'农业大棚"+greenhouseId+"'";
+        sql=sql+" ,'"+ dateTime.format(formatter) +"')";
+        try {
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[queryRecord]查询数据库出现错误：" + sql);
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean deleteWarningRecord(String warningId) throws SQLException, JSONException {
+        String sql="delete from warning_file where warning_id="+warningId;
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[queryRecord]查询数据库出现错误：" + sql);
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean modifyWarningRecord(String warningRecord,String greenhouseId,int warningId) throws SQLException, JSONException {
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        String sql="update warning_file set warning_record='"+warningRecord+"',greenhouse_id='"+greenhouseId+"',greenhouse_name='农业大棚"+greenhouseId+"',warning_datetime='"+dateTime.format(formatter)+"'";
+        sql+=" where warning_id="+warningId+";";
+        try {
+            statement.executeUpdate(sql);
+            System.out.println("成功执行sql语句："+sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[queryRecord]查询数据库出现错误：" + sql);
+            return false;
+        }
+        return true;
     }
 }

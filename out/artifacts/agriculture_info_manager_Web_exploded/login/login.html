@@ -1,16 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>农业大棚信息管理系统登陆界面</title>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-
-    <script language="JavaScript" src="../js/jquery.js"></script>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript" src="../js/jquery.js" type=""></script>
     <script src="../js/cloud.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" href="css/jigsaw.css">
-    <style>
+    <style type="">
         #msg {
             width: 100%;
             line-height: 40px;
@@ -19,7 +17,7 @@
         }
     </style>
 
-    <script language="javascript">
+    <script language="javascript" type="">
         $(function(){
             $('.login-wrap').css({'position':'absolute','left':($(window).width()-525)/2});
             $(window).resize(function(){
@@ -47,7 +45,7 @@
     </ul>
 </div>
 
-<script src="js/jigsaw.js"></script>
+<script src="js/jigsaw.js" type=""></script>
 <div class="loginbody">
 
     <span class="systemlogo"></span>
@@ -60,10 +58,10 @@
                     <div class="sign-in-htm">
                         <div class="group">
                             <label  class="label">用户名/邮箱</label>
-                            <input id="account" name="username" value="admin" type="text" class="input">
+                            <label for="account"></label><input id="account" name="username" value="admin" type="text" class="input">
                         </div>
                         <div class="group">
-                            <label  class="label">密码</label>
+                            <label class="label">密码</label>
                             <input id="password" type="password" class="input" data-type="password">
                         </div>
                         <div class="group">
@@ -281,6 +279,7 @@
                    mailRegular=false;
                }else if(json.ok===400){
                    document.getElementById("notice").innerText="邮箱地址           该地址已经被申请，请等待管理员审核！";
+                   mailRegular=false;
                }
             });
         }
@@ -293,10 +292,6 @@
     let getBtn=document.getElementById("getBtn")
     let countTime=60;
     function setTime(){
-        if(!mailRegular){
-            alert("邮箱地址不合法！");
-            return;
-        }
         if(countTime===0){
             getBtn.removeAttribute("disabled");
             getBtn.value="获取验证码";
@@ -306,22 +301,33 @@
                 return;
             }
         }else{
+            if(!mailRegular){
+                alert("邮箱地址不合法！");
+                getBtn.removeAttribute("disabled");
+                getBtn.value="获取验证码";
+                countTime=60;
+                if(countTime===60){
+                    flagCode=true;
+                    return;
+                }
+            }
             getBtn.setAttribute("disabled",true);
             getBtn.value="重新发送("+countTime+"s)";
             if(flagCode){
-                let url="../ServletAction";
-                let message={};
-                message.Action="sendCode";
-                message.mail=document.getElementById("mailAddress").value;
-                $.post(url,message,function (json){
-                    if(json.ok===200){
-                        alert("验证码发送成功!");
-                        backCode=json.code;
-                    }else{
-                        alert("验证码发送失败!");
-                    }
-                });
-                flagCode=false;
+                if(countTime===58){
+                    let url="../ServletAction";
+                    let message={};
+                    message.Action="sendCode";
+                    message.mail=document.getElementById("mailAddress").value;
+                    $.post(url,message,function (json){
+                        if(json.ok===200){
+                            backCode=json.code;
+                        }else{
+                            alert("验证码发送失败!");
+                        }
+                    });
+                    flagCode=false;
+                }
             }
             countTime--;
         }
@@ -366,6 +372,7 @@
                     } else {
                         alert("申请注册失败!");
                     }
+                    window.location.reload();
                 });
             }else{
                 alert("验证码错误!");
