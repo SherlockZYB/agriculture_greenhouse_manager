@@ -7,57 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cd05c02-abc7-4d6a-b361-dd1d92e7e314" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/warning_module/print_warning_table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/DbOperator/sqlOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/DbOperator/sqlOperator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/Servlet/ServletAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/Servlet/ServletAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/imgtable.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/imgtable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/left_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/left_main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/css/dataTables.bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/js/dataTables.bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/js/jquery-1.8.3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/js/jquery.dataTables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/DataTable/js/jquery.uniform.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/css/jigsaw.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/img/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/img/icon_light.f13cff3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/js/jigsaw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/login_module/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/top.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DbOperator/sqlOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DbOperator/sqlOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servlet/ServletAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/ServletAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/DbOperator/sqlOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/DbOperator/sqlOperator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/ServletAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/ServletAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/left_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/left_main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/css/dataTables.bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/js/dataTables.bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/js/jquery-1.8.3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/js/jquery.dataTables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/DataTable/js/jquery.uniform.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/css/jigsaw.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/img/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/img/icon_light.f13cff3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/js/jigsaw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login_module/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/warning_module/warning_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/warning_module/warning_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/warning_module/warning_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/warning_module/warning_table.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +21,7 @@
         <option value="JavaScript File" />
         <option value="Jsp File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -97,6 +49,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -115,6 +68,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 8.5.701" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.701" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/agriculture_info_manager_Web_exploded/main.html" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
@@ -302,6 +266,7 @@
       <workItem from="1636507118665" duration="529000" />
       <workItem from="1636507673252" duration="8677000" />
       <workItem from="1636896274069" duration="6581000" />
+      <workItem from="1636988486623" duration="907000" />
     </task>
     <servers />
   </component>
