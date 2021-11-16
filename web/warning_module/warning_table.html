@@ -17,14 +17,6 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $(".click").click(function(){
-                $(".tip").fadeIn(200);
-            });
-
-            $(".tiptop a").click(function(){
-                $(".tip").fadeOut(200);
-            });
-
             $(".cancel").click(function(){
                 $(".tip").fadeOut(100);
             });
@@ -43,20 +35,16 @@
 </div>
 
 <div class="rightinfo">
-
     <div class="tools">
 
         <ul class="toolbar">
             <li id="addRecordBtn" name="addRecordBtn" onclick="onAddRecord()"><span><img src="../images/t01.png" /></span>添加</li>
-            <li id="modifyRecordBtn" name="modifyRecordBtn" onclick="onModifyRecord()"><span><img src="../images/t02.png" /></span>修改</li>
-            <li id="deleteRecordBtn" name="deleteRecordBtn" onclick="onDeleteRecord()"><span><img src="../images/t03.png" /></span>删除</li>
-            <li id="queryRecordBtn" name="mqueryRecordBtn" onclick="onQueryRecord()"><span><img src="../images/t04.png" /></span>查询</li>
+            <li id="queryRecordBtn" name="queryRecordBtn" onclick="onQueryRecord()"><span><img src="../images/t04.png" /></span>查询</li>
+            <li id="printRecordBtn" name="printRecordBtn" onclick="onPrintRecord()"><span><img src="../images/t04.png" /></span>打印</li>
+            <li id="exportRecordBtn" name="exportRecordBtn" onclick="onExportRecord()"><span><img src="../images/t04.png" /></span>导出</li>
+            <li id="orderRecordBtn" name="orderRecordBtn" onclick="onOrderRecord()"><span><img src="../images/t04.png" /></span>按大棚编号排序</li>
+            <li id="statisticRecordBtn" name="statisticRecordBtn" onclick="onStatisticRecord()"><span><img src="../images/t04.png" /></span>统计</li>
         </ul>
-
-
-<!--        <ul class="toolbar1">-->
-<!--            <li><span><img src="../images/t05.png" /></span>设置</li>-->
-<!--        </ul>-->
     </div>
 
 
@@ -91,6 +79,21 @@
     </div>
 </div>
 
+<div class="tip" id="QueryWarningRecord">
+    <div class="tiptop"><span>查询预警信息</span><a></a></div>
+    <div class="tipinfo">
+        <span><img src="../images/ticon.png" /></span>
+        <div class="tipright">
+            <input id="query_warning_record" type="text" class="form-control" placeholder="输入预警信息内容">
+            <br/>
+            <input id="query_greenhouse_id" type="text" class="form-control" placeholder="输入预警信息所在大棚编号">
+            <br/>
+            <input name="" type="button" onclick="submitQueryRecord()" class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    </div>
+</div>
+
 <div class="tip" id="ModifyWarningRecord">
     <div class="tiptop"><span>修改预警信息</span><a></a></div>
     <div class="tipinfo">
@@ -105,9 +108,19 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $('.imgtable tbody tr:odd').addClass('odd');
-</script>
+
+<div class="tip" id="ExportWarningRecord">
+    <div class="tiptop"><span>导出预警信息</span><a></a></div>
+    <div class="tipinfo">
+        <span><img src="../images/ticon.png" /></span>
+        <div class="tipright">
+            <span>下载地址：<a href="" id="download_url" name="download_url">点击下载</a></span>
+        </div>
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+    </div>
+</div>
+
 <link rel="stylesheet" type="text/css" href="../login/DataTable/css/dataTables.bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="../login/DataTable/css/bootstrap.min.css"/>
 

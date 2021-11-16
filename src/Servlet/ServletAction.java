@@ -5,11 +5,15 @@ import DbOperator.sqlOperator;
 import org.apache.commons.mail.EmailException;
 import org.json.JSONException;
 import org.json.JSONObject;
+import warningModule.file.MyExcel;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -124,8 +128,10 @@ public class ServletAction extends HttpServlet {
             }
 
             case "showWarningTable":
+                String isOrdered=req.getParameter("isOrdered");
+                System.out.println("isOrdered="+isOrdered);
                 try {
-                    responseBack(req,resp,sqlOp.showWarningTable());
+                    responseBack(req,resp,sqlOp.showWarningTable(isOrdered));
                 } catch (JSONException | SQLException e) {
                     e.printStackTrace();
                 }
@@ -181,6 +187,38 @@ public class ServletAction extends HttpServlet {
                 }
                 break;
 
+            case "exportWarningRecord":
+                try {
+                    JSONObject json=sqlOp.showWarningTable("false");
+//                    getExportWarningRecordToFile(json);
+                    getExportWarningRecordToExcel(json);
+                    json.put("ok",200);
+                    responseBack(req,resp,json);
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "statisticWarningRecord":
+                try {
+                    System.out.println("进入统计ServletAction");
+                    responseBack(req,resp,sqlOp.statisticWarningTable());
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "queryWarningRecord":
+                warningRecord=req.getParameter("warning_record");
+                greenhouseId=req.getParameter("greenhouse_id");
+
+                try {
+                    responseBack(req,resp,sqlOp.queryWarningRecord(warningRecord,greenhouseId));
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
             default:{
                 break;
             }
@@ -210,4 +248,29 @@ public class ServletAction extends HttpServlet {
 //                e.printStackTrace();
             }
         }
+
+    private void getExportWarningRecordToFile(JSONObject json) throws JSONException {
+        String jsonStr = json.toString();
+        File jsonFile = new File("D:\\test\\maintain\\device\\export_device.txt");
+        json.put("download_url","/test/maintain/device/export_device.txt");
+        try {
+            // 文件不存在就创建文件
+            if (!jsonFile.exists()) {
+                jsonFile.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(jsonFile.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fileWriter);
+            bw.write(jsonStr);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getExportWarningRecordToExcel(JSONObject json) throws JSONException, IOException {
+        MyExcel me=new MyExcel("D:\\test\\maintain\\device\\export_device.xls");
+        json.put("download_url","/test/maintain/device/export_device.xls");
+        json.put("file_path","D:\\test\\maintain\\device\\export_device.xls");
+        me.exportData(json);
+    }
 }

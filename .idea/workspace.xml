@@ -7,8 +7,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cd05c02-abc7-4d6a-b361-dd1d92e7e314" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/warning_module/print_warning_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_logging_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_3_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/log4j_1_2_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/poi_3_8_20120326.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/warningModule/file/MyExcel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/junit-3.8.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/log4j-1.2.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/poi-3.8-20120326.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/frame/frame_footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/frame/frame_header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/frame/frame_js.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/frame/frame_quick_sidebar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/frame/frame_sidebar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/frame/frame_style.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/main/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/home/main/login_error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/warning_module/templates/admin/statistic_table.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agriculture_info_manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/agriculture_info_manager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/DbOperator/sqlOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/DbOperator/sqlOperator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/Servlet/ServletAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/WEB-INF/classes/Servlet/ServletAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/agriculture_info_manager_Web_exploded/warning_module/warning_table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DbOperator/sqlOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DbOperator/sqlOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servlet/ServletAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/ServletAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/DbOperator/sqlOperator.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/DbOperator/sqlOperator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/ServletAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/ServletAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/warning_module/warning_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/warning_module/warning_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/warning_module/warning_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/warning_module/warning_table.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +47,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Jsp File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -44,6 +73,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="20VDS1u7uH9ul6kFPaKt8hqAYI9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,7 +87,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CRUDTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -64,7 +96,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Sherlock\IdeaProjects\agriculture_info_manager\web\WEB-INF\lib" />
+      <recent name="D:\Users\Sherlock\IdeaProjects\agriculture_info_manager\web\warning_module" />
       <recent name="D:\Users\Sherlock\IdeaProjects\agriculture_info_manager\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Sherlock\IdeaProjects\agriculture_info_manager\web\warning_module\templates\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -93,6 +130,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="5f5385ef-869d-4e2b-a6e3-3aacbd2fb119" />
+        <option name="DEPLOY_TOMCAT_APPS" value="true" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -267,6 +305,8 @@
       <workItem from="1636507673252" duration="8677000" />
       <workItem from="1636896274069" duration="6581000" />
       <workItem from="1636988486623" duration="907000" />
+      <workItem from="1637045444619" duration="2981000" />
+      <workItem from="1637048955279" duration="18770000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,10 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -87,9 +91,20 @@ public class sqlOperator {
         }
     }
 
-    public JSONObject showWarningTable() throws SQLException, JSONException {
-        String sql="select * from warning_file";
+    public JSONObject showWarningTable(String isOrdered) throws SQLException, JSONException {
+        String sql;
+        System.out.println("sqlOperator中isOrdered="+isOrdered);
+        if(isOrdered.equals("true")){
+            System.out.println("按大棚编号排序");
+            sql="select * from warning_file order by greenhouse_id";
+        }
+        else{
+            System.out.println("按预警信息编号排序");
+            sql="select * from warning_file";
+        }
+
         ArrayList jsonList=new ArrayList();
+        ArrayList jsonName=new ArrayList();
         try {
             ResultSet rs = statement.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
@@ -102,11 +117,17 @@ public class sqlOperator {
                 jsonList.add(map);
             }
             rs.close();
+            //加表头信息
+            for(int i=0;i<rsmd.getColumnCount();i++){
+                String columLabel= rsmd.getColumnLabel(i+1);
+                jsonName.add(columLabel);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("[queryRecord]查询数据库出现错误：" + sql);
         }
         JSONObject json=new JSONObject();
+        json.put("aaFieldName",jsonName);
         json.put("aaData",jsonList);
         return json;
     }
@@ -158,5 +179,60 @@ public class sqlOperator {
             return false;
         }
         return true;
+    }
+
+    public JSONObject statisticWarningTable() throws SQLException, JSONException {
+        String sql;
+        sql="select greenhouse_id,count(*) as warning_num from warning_file group by greenhouse_id;";
+
+        ArrayList jsonList=new ArrayList();
+        try {
+            ResultSet rs = statement.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int fieldCount = rsmd.getColumnCount();
+            while (rs.next()) {
+                Map map = new HashMap();
+                for (int i = 0; i < fieldCount; i++) {
+                    map.put(rsmd.getColumnName(i + 1), rs.getString(rsmd.getColumnName(i + 1)));
+                }
+                jsonList.add(map);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[queryRecord]查询数据库出现错误：" + sql);
+        }
+        JSONObject json=new JSONObject();
+        json.put("aaData",jsonList);
+        json.put("ok",200);
+        return json;
+    }
+
+    public JSONObject queryWarningRecord(String warningRecord,String greenhouseId) throws SQLException, JSONException {
+        String sql="select * from warning_file where warning_record like '"+warningRecord+"' or greenhouse_id='"+greenhouseId+"';";
+        ArrayList jsonList=new ArrayList();
+        System.out.println("执行的sql语句为："+sql);
+
+        try {
+            ResultSet rs = statement.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int fieldCount = rsmd.getColumnCount();
+            while (rs.next()) {
+                Map map = new HashMap();
+                for (int i = 0; i < fieldCount; i++) {
+                    map.put(rsmd.getColumnName(i + 1), rs.getString(rsmd.getColumnName(i + 1)));
+                }
+                jsonList.add(map);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[queryRecord]查询数据库出现错误：" + sql);
+        }
+
+        JSONObject json=new JSONObject();
+        json.put("ok",200);
+        json.put("aaData",jsonList);
+        return json;
     }
 }
