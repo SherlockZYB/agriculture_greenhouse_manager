@@ -4,15 +4,60 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     <!--此处注册servlet-->
     <servlet>
         <servlet-name>ServletAction</servlet-name>
         <servlet-class>login.Servlet.ServletAction</servlet-class>
+<<<<<<< HEAD
+=======
+=======
+
+    <!--此处注册servlet-->
+    <servlet>
+        <servlet-name>ServletAction</servlet-name>
+        <servlet-class>Servlet.ServletAction</servlet-class>
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     </servlet>
 
     <servlet-mapping>
         <servlet-name>ServletAction</servlet-name>
         <url-pattern>/ServletAction</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+
+
+    <!-- ================  warningModule begin =================           -->
+    <servlet>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <servlet-class>warningModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <url-pattern>/warningModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  warningModule end =================           -->
+
+    <!-- ================  workingModule begin =================           -->
+    <servlet>
+        <servlet-name>workingModule_file_servlet_action</servlet-name>
+        <servlet-class>workingModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workingModule_file_servlet_action</servlet-name>
+        <url-pattern>/workingModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  workingModule end =================           -->
+
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 </web-app>

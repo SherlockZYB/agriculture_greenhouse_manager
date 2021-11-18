@@ -26,7 +26,23 @@ $(function(){
 });
 // 实现页面跳转
 function getUserRecordTable(){
+<<<<<<< HEAD
     window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
+=======
+<<<<<<< HEAD
+    window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
+=======
+    alert("frame部分刷新");
+    window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
+    alert("刷新成功!");
+}
+
+function getWarningRecordTable(){
+    alert("frame部分刷新");
+    window.parent.frames['rightFrame'].location="warning_module/warning_table.html?_="+Math.random();
+    alert("刷新成功!");
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 }
 
 function getDeviceInfo(){
@@ -75,21 +91,49 @@ function getDeviceInfo(){
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>员工管理</div>
         <ul class="menuson">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             <li><cite></cite><a href="#">查看员工信息</a><i></i></li>
             <!--        查看员工信息内包含内容：大棚信息表（导出、排序、统计）-->
             <li><cite></cite><a href="#">增加员工</a><i></i></li>
             <li><cite></cite><a href="#">删除员工</a><i></i></li>
             <li><cite></cite><a href="#">修改员工</a><i></i></li>
+<<<<<<< HEAD
+=======
+=======
+            <li><cite></cite><a href="working_module/salary.html" target="rightFrame">员工工资管理</a><i></i></li>
+            <!--        查看员工信息内包含内容：工资信息表（导出、排序、统计）-->
+            <!--        查看员工信息内包含内容：考勤信息表（导出、排序、统计）-->
+            <li><cite></cite><a href="working_module/checkingIn.html" target="rightFrame">员工考勤管理</a><i></i></li>
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         </ul>
     </dd>
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
         <ul class="menuson">
             <li><cite></cite><a href="#">查看预警信息</a><i></i></li>
             <!--        查看预警信息内包含内容：预警信息表（导出、排序、统计）-->
             <li><cite></cite><a href="#">处理预警信息</a><i></i></li>
         </ul>
+<<<<<<< HEAD
+=======
+=======
+    <dd onclick="getWarningRecordTable()"><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
+<!--        <ul class="menuson">-->
+<!--            <li><cite></cite><a href="#">查看预警信息</a><i></i></li>-->
+<!--            &lt;!&ndash;        查看预警信息内包含内容：预警信息表（导出、排序、统计）&ndash;&gt;-->
+<!--            <li><cite></cite><a href="#">处理预警信息</a><i></i></li>-->
+<!--        </ul>-->
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     </dd>
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>设备管理</div>

@@ -1,0 +1,25 @@
+drop table salary_file;
+
+-- 工资管理数据表
+-- 工资信息id salary_id
+-- 工资信息对应的雇员id employee_id
+-- 工资信息对应的雇员name employee_name
+-- 工资信息对应的雇员职务duty employee_duty
+-- 工资数额 salary_number
+-- 工资月份 salary_month
+-- 工资信息备注 salary_remark
+-- 工资信息录入时间 salary_datetime
+
+create table warning_file
+(
+  salary_id varchar(255),
+  employee_id varchar(255),
+  employee_name varchar(255),
+  employee_duty varchar(255),
+  salary_number varchar(255),
+  salary_month varchar(255),
+  salary_remark varchar(255),
+  salary_datetime datetime(),
+
+  primary key(salary_id)
+);

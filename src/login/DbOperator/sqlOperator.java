@@ -4,7 +4,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.ResultSet;
+<<<<<<< HEAD
 import java.sql.ResultSetMetaData;
+=======
+<<<<<<< HEAD
+import java.sql.ResultSetMetaData;
+=======
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -24,7 +31,15 @@ public class sqlOperator {
     // 判断用户是否可以登录成功
     public int isExist(String account, String password) throws SQLException {
         String sql="select * from accountInfo where account='"+account+"' and PASSWORD='"+password+"'";
+<<<<<<< HEAD
         System.out.println("[sqlOperator/isExist()]将要执行sql:"+sql);
+=======
+<<<<<<< HEAD
+        System.out.println("[sqlOperator/isExist()]将要执行sql:"+sql);
+=======
+        System.out.println("sql:"+sql);
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         ResultSet resultSet=statement.executeQuery(sql);
         if(resultSet.next()){
             return resultSet.getInt("userLevel");
@@ -46,7 +61,15 @@ public class sqlOperator {
         String date=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         System.out.println(date);
         String sql="insert into applyInfo (account, PASSWORD, mail, applyDate) VALUES('"+account+"','"+password+"','"+mail+"','"+date+"')";
+<<<<<<< HEAD
         System.out.println("[sqlOperator/Register()]将要执行sql:"+sql);
+=======
+<<<<<<< HEAD
+        System.out.println("[sqlOperator/Register()]将要执行sql:"+sql);
+=======
+        System.out.println("sql:"+sql);
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         if(statement.executeUpdate(sql)>0){
             return true;
         }else{
@@ -66,7 +89,15 @@ public class sqlOperator {
             sql="select * from accountInfo where account='"+content+"'";
             sql1="select * from applyInfo where account='"+content+"'";
         }
+<<<<<<< HEAD
         System.out.println("[sqlOperator/isExisted()]将要执行SQL:"+sql);
+=======
+<<<<<<< HEAD
+        System.out.println("[sqlOperator/isExisted()]将要执行SQL:"+sql);
+=======
+        System.out.println("SQL:"+sql);
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         ResultSet resultSet=statement.executeQuery(sql);
         if(resultSet.next()){
             // -1 说明用户账户或邮箱已经存在
@@ -86,6 +117,10 @@ public class sqlOperator {
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     public JSONObject getUserRecord(String sortWay) throws SQLException, JSONException {
         String sql="select * from accountInfo";
         // 定义升序或降序
@@ -97,12 +132,28 @@ public class sqlOperator {
 
         ResultSet resultSet=this.statement.executeQuery(sql);
         System.out.println("[sqlOperator/getUserRecord()]执行SQL："+sql);
+<<<<<<< HEAD
+=======
+=======
+    public JSONObject getRecord() throws SQLException, JSONException {
+        String sql="select * from accountInfo";
+        ResultSet resultSet=this.statement.executeQuery(sql);
+        System.out.println("执行SQL："+sql);
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         List jsonList=new ArrayList();
         while (resultSet.next()){
             Map map=new HashMap();
             map.put("id",resultSet.getInt("userId"));
             map.put("account",resultSet.getString("account"));
             map.put("mail",resultSet.getString("mail"));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//            map.put("password",resultSet.getString("PASSWORD"));
+=======
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             map.put("userLevel",resultSet.getString("userLevel"));
             map.put("userName",resultSet.getString("userName"));
             map.put("userGender",resultSet.getString("userGender"));
@@ -120,7 +171,15 @@ public class sqlOperator {
     public JSONObject getDeviceRecord() throws SQLException, JSONException {
         String sql="select * from deviceInfo";
         ResultSet resultSet=this.statement.executeQuery(sql);
+<<<<<<< HEAD
         System.out.println("[sqlOperator/getDeviceRecord()]将要执行SQL："+sql);
+=======
+<<<<<<< HEAD
+        System.out.println("[sqlOperator/getDeviceRecord()]将要执行SQL："+sql);
+=======
+        System.out.println("执行SQL："+sql);
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         List jsonList=new ArrayList();
         while (resultSet.next()){
             Map map=new HashMap();
@@ -140,6 +199,10 @@ public class sqlOperator {
         return jsonObject;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     // 该函数用于普适性的获取记录信息，主要用于导出，查询，等情况
     public JSONObject getRecord(String name) throws SQLException, JSONException {
         String sql="select * from "+name;
@@ -190,6 +253,7 @@ public class sqlOperator {
 
     }
 
+<<<<<<< HEAD
 
     public void addDeviceInfo(HashMap map) throws SQLException {
         String date=new SimpleDateFormat("yyyy-MM-dd hh-mm-ss").format(new Date());
@@ -202,15 +266,38 @@ public class sqlOperator {
     public void ModifyDeviceInfo(HashMap map) throws SQLException {
         String sql="update deviceInfo set deviceNum='"+map.get("deviceNum")+"',deviceLocation='"+map.get("deviceLocation")+"',deviceStatus='"+map.get("deviceStatus")+"'";
         sql+=" where deviceId="+map.get("deviceId");
+=======
+    public void AddRecord(HashMap map) throws SQLException {
+
+        // 指定属性插入
+        String date=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        String sql="insert into accountInfo(account,mail,password,userLevel,signUpDate,lastModifyDate,isWorker) values('"+map.get("account")+"','"+map.get("mail")+"','"+map.get("password")+"','"+map.get("userLevel")+"','"+date+"','"+date+"',"+map.get("isWorker")+")";
+        System.out.println("[sqlOperator/AddRecord]将要执行:"+sql);
+        this.statement.executeUpdate(sql);
+    }
+
+    // 修改信息
+    public void ModifyUserRecord(HashMap map) throws SQLException {
+        String sql="update accountInfo set account='"+map.get("account")+"',mail='"+map.get("mail")+"',userLevel='"+map.get("userLevel")+"',userName='"+map.get("userName")+"',userGender='"+map.get("userGender")+"',isWorker='"+map.get("isWorker")+"'";
+        sql+=" where userId="+map.get("id");
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         System.out.println("[sqlOperator/ModifyRecord]：将要执行SQL:"+sql);
         this.statement.executeUpdate(sql);
     }
 
+<<<<<<< HEAD
     public JSONObject StatisticsDeviceInfo() throws SQLException, JSONException {
         String sql="select count(*) as sumNum from deviceInfo";
         String sql1="select deviceName,count(*) as deviceSum from deviceInfo group by deviceName";
         String sql2="select deviceLocation,count(*) as deviceNum from deviceInfo group by deviceLocation";
 
+=======
+    // 统计用户信息
+    public JSONObject StatisticsUserRecord() throws SQLException, JSONException {
+        String sql="select count(*) as sumNum from accountInfo";
+        String sql1="select userLevel,count(*) as levelNum  from accountInfo group by userLevel";
+        String sql2="select count(*) as applyNum from applyInfo";
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 
         JSONObject json=new JSONObject();
 
@@ -222,6 +309,7 @@ public class sqlOperator {
 
         System.out.println("[sqlOperator/Static]将要执行:"+sql1);
         resultSet=this.statement.executeQuery(sql1);
+<<<<<<< HEAD
         json.put("温度计",0);
         json.put("湿度计",0);
         json.put("计时器",0);
@@ -232,11 +320,24 @@ public class sqlOperator {
                 json.put("湿度计",resultSet.getInt("deviceSum"));
             }else{
                 json.put("计时器",resultSet.getInt("deviceSum"));
+=======
+        json.put("manager",0);
+        json.put("generalManager",0);
+        json.put("generalUser",0);
+        while (resultSet.next()){
+            if(resultSet.getInt("userLevel")==0){
+                json.put("manager",resultSet.getInt("levelNum"));
+            }else if(resultSet.getInt("userLevel")==1){
+                json.put("generalManager",resultSet.getInt("levelNum"));
+            }else{
+                json.put("generalUser",resultSet.getInt("levelNum"));
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             }
 
         }
 
         System.out.println("[sqlOperator/Static]将要执行:"+sql2);
+<<<<<<< HEAD
         json.put("一号大棚",0);
         json.put("二号大棚",0);
         resultSet=this.statement.executeQuery(sql2);
@@ -251,6 +352,17 @@ public class sqlOperator {
     }
 
 
+=======
+        resultSet=this.statement.executeQuery(sql2);
+        resultSet.next();
+        json.put("applyNum",resultSet.getString("applyNum"));
+        System.out.println(resultSet.getString("applyNum"));
+        return json;
+    }
+
+=======
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
+>>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     // 断开链接。
     public void CloseCn() throws SQLException {
         this.statement.close();
