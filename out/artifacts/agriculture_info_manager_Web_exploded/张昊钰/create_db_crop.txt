@@ -1,0 +1,25 @@
+drop table crop_file;
+
+-- 作物管理数据表
+-- 作物信息id crop_id
+-- 作物信息对应的大棚id greenhouse_id
+-- 作物信息对应的大棚name greenhouse_name
+-- 作物名称 crop_name
+-- 作物数量 crop_number
+-- 作物状态 crop_status
+-- 作物信息备注 crop_remark
+-- 作物信息录入时间 crop_datetime
+
+create table warning_file
+(
+  crop_id varchar(255),
+  greenhouse_id varchar(255),
+  greenhouse_name varchar(255),
+  crop_name varchar(255),
+  crop_number varchar(255),
+  crop_status varchar(255),
+  crop_remark varchar(255),
+  crop_datetime datetime(),
+
+  primary key(crop_id)
+);

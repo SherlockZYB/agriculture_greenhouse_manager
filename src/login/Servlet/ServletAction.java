@@ -13,7 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
 
 public class ServletAction extends HttpServlet {
 
@@ -40,6 +45,7 @@ public class ServletAction extends HttpServlet {
         String action=req.getParameter("Action");
         sqlOperator sqlOp=new sqlOperator();
         switch (action){
+<<<<<<< HEAD
             // 此增加功能只能进行用户表的增加
             case "addUserInfo":{
                 String account=req.getParameter("account");
@@ -119,6 +125,11 @@ public class ServletAction extends HttpServlet {
                 System.out.println(sort);
                 try {
                     jsonObject=sqlOp.getUserRecord(sort);
+=======
+            case "getRecord":{
+                try {
+                    jsonObject=sqlOp.getRecord();
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
                 } catch (SQLException | JSONException e) {
                     System.out.println("获取数据失败!");
                     e.printStackTrace();
@@ -215,6 +226,7 @@ public class ServletAction extends HttpServlet {
 
             // 导出文件
             case "exportFile":{
+<<<<<<< HEAD
                 // 该json用于保存导出的数据
                 JSONObject json=new JSONObject();
                 System.out.println("正在导出");
@@ -239,13 +251,26 @@ public class ServletAction extends HttpServlet {
             }
 
             // 获取设备信息
+=======
+                // 从前端获取json
+
+                String json =req.getParameter("json");
+                System.out.println("从前端获取到JSON:"+json);
+                JsonToFile jsonToFile=new JsonToFile();
+//                jsonObject=jsonToFile.setJsonTOTxt();
+            }
+
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
             case "getDeviceRecord":{
                 try {
                     jsonObject=sqlOp.getDeviceRecord();
                 } catch (JSONException | SQLException e) {
                     e.printStackTrace();
                 }
+<<<<<<< HEAD
                 break;
+=======
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
             }
 
             default:{

@@ -1,5 +1,6 @@
 package login.export;
 
+<<<<<<< HEAD
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -15,6 +16,18 @@ public class JsonToFile {
     // 定义导出的路径信息
     final String txtPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\export.txt";
     final String excelPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\export.xls";
+=======
+import com.sun.xml.internal.ws.util.FastInfosetUtil;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class JsonToFile {
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
 
 
     // 将JSON导出成TXT文件
@@ -22,7 +35,11 @@ public class JsonToFile {
         // JSON转字符串
         String jsonstr=jsonObject.toString();
 
+<<<<<<< HEAD
         File jsonFile=new File(this.txtPath);
+=======
+        File jsonFile=new File("C:\\Users\\23639\\Desktop\\JsonToFile\\export.txt");
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
         if(!jsonFile.exists()){
             jsonFile.createNewFile();
             System.out.println("创建文件成功!");
@@ -30,6 +47,7 @@ public class JsonToFile {
         // 写入文件
         FileWriter fileWriter=new FileWriter(jsonFile.getAbsoluteFile());
         BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+<<<<<<< HEAD
 
         System.out.println("[sqlOperator/setJsonTOTxt]正在写入文件!");
         bufferedWriter.write(jsonstr);
@@ -39,10 +57,19 @@ public class JsonToFile {
         JSONObject json=new JSONObject();
         json.put("txtDownloadPath","/upLoad/export.txt");
         return json;
+=======
+        bufferedWriter.close();
+        System.out.println("set JSON to Txt, success");
+        // 使用JSON格式反馈下载路径
+        JSONObject jsonPath=new JSONObject();
+        jsonPath.put("downloadPath","/upload/export.txt");
+        return jsonPath;
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
     }
 
 
     // 将json导出成excel
+<<<<<<< HEAD
     public void setJsonToExcel(JSONObject json,JSONObject jsonObject) throws IOException, JSONException {
         HSSFWorkbook workbook=new HSSFWorkbook();
         HSSFSheet sheet=workbook.createSheet("sheet0");
@@ -76,6 +103,11 @@ public class JsonToFile {
         outputStream.close();
         jsonObject.put("excelDownloadPath","/upLoad/export.xls");
         jsonObject.put("ok",200);
+=======
+    public void setJsonToExcel(JSONObject jsonObject){
+
+
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
         System.out.println("set JSON to excel, success");
     }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+    <!--此处注册servlet-->
+    <servlet>
+        <servlet-name>ServletAction</servlet-name>
+        <servlet-class>Servlet.ServletAction</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletAction</servlet-name>
+        <url-pattern>/ServletAction</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- ================  warningModule begin =================           -->
+    <servlet>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <servlet-class>warningModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <url-pattern>/warningModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  warningModule end =================           -->
+
+    <!-- ================  workingModule begin =================           -->
+    <servlet>
+        <servlet-name>workingModule_file_servlet_action</servlet-name>
+        <servlet-class>workingModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>workingModule_file_servlet_action</servlet-name>
+        <url-pattern>/workingModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  workingModule end =================           -->
+
+</web-app>

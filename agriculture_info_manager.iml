@@ -9,6 +9,10 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+<<<<<<< HEAD
+=======
+        <sourceRoots />
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
       </configuration>
     </facet>
   </component>
@@ -22,7 +26,16 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="echarts" level="application" />
+=======
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="lib2" level="project" />
+    <orderEntry type="library" name="commons-logging-1.1" level="project" />
+    <orderEntry type="library" name="junit-3.8.1" level="project" />
+    <orderEntry type="library" name="log4j-1.2.13" level="project" />
+    <orderEntry type="library" name="poi-3.8-20120326" level="project" />
+>>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
   </component>
 </module>
