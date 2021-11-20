@@ -219,6 +219,106 @@ public class ServletAction extends HttpServlet {
                 }
                 break;
 
+            case "showSalaryTable":
+                isOrdered=req.getParameter("isOrdered");
+                System.out.println("isOrdered="+isOrdered);
+                try {
+                    responseBack(req,resp,sqlOp.showSalaryTable(isOrdered));
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "addSalaryRecord":
+                String employee_id=req.getParameter("employee_id");
+                String employee_name=req.getParameter("employee_name");
+                String employee_duty=req.getParameter("employee_duty");
+                String salary_number=req.getParameter("salary_number");
+                String salary_remark=req.getParameter("salary_remark");
+                String salary_month=req.getParameter("salary_month");
+
+                try {
+                    if(sqlOp.addSalaryRecord(employee_id,employee_name,employee_duty,salary_number,salary_remark,salary_month)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "deleteSalaryRecord":
+                String salary_id=req.getParameter("salary_id");
+
+                try {
+                    if(sqlOp.deleteSalaryRecord(salary_id)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "modifySalaryRecord":
+                salary_id=req.getParameter("salary_id");
+                employee_id=req.getParameter("employee_id");
+                employee_name=req.getParameter("employee_name");
+                employee_duty=req.getParameter("employee_duty");
+                salary_number=req.getParameter("salary_number");
+                salary_remark=req.getParameter("salary_remark");
+                salary_month=req.getParameter("salary_month");
+
+                try {
+                    if(sqlOp.modifySalaryRecord(salary_id,employee_id,employee_name,employee_duty,salary_number,salary_remark,salary_month)){
+                        jsonObject.put("ok",200);
+                        System.out.println("成功修改");
+                    }else{
+                        System.out.println("修改失败");
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "querySalaryRecord":
+                String query_employee_name=req.getParameter("employee_name");
+                String query_salary_month=req.getParameter("salary_month");
+
+                try {
+                    responseBack(req,resp,sqlOp.querySalaryRecord(query_employee_name,query_salary_month));
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "exportSalaryRecord":
+                try {
+                    JSONObject json=sqlOp.showSalaryTable("false");
+//                    getExportWarningRecordToFile(json);
+                    getExportSalaryRecordToExcel(json);
+                    json.put("ok",200);
+                    responseBack(req,resp,json);
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "statisticSalaryRecord":
+                try {
+                    System.out.println("进入统计ServletAction!!!!");
+                    responseBack(req,resp,sqlOp.statisticSalaryTable());
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
             default:{
                 break;
             }
@@ -273,4 +373,12 @@ public class ServletAction extends HttpServlet {
         json.put("file_path","D:\\test\\maintain\\device\\export_device.xls");
         me.exportData(json);
     }
+
+    private void getExportSalaryRecordToExcel(JSONObject json) throws JSONException, IOException {
+        MyExcel me=new MyExcel("C:\\upload\\maintain\\device\\export_salary.xls");
+        json.put("download_url","/upload/maintain/device/export_salary.xls");
+        json.put("file_path","C:\\upload\\maintain\\device\\export_salary.xls");
+        me.exportData(json);
+    }
+
 }
