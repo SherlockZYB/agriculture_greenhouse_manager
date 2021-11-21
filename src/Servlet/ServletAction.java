@@ -2,18 +2,33 @@ package Servlet;
 
 import DbOperator.sendCode;
 import DbOperator.sqlOperator;
+<<<<<<< HEAD
 import login.export.JsonToFile;
 import org.apache.commons.mail.EmailException;
 import org.json.JSONException;
 import org.json.JSONObject;
+=======
+import org.apache.commons.mail.EmailException;
+import org.json.JSONException;
+import org.json.JSONObject;
+import warningModule.file.MyExcel;
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+=======
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.SQLException;
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 
 public class ServletAction extends HttpServlet {
 
@@ -40,6 +55,7 @@ public class ServletAction extends HttpServlet {
         String action=req.getParameter("Action");
         sqlOperator sqlOp=new sqlOperator();
         switch (action){
+<<<<<<< HEAD
             // 此增加功能只能进行用户表的增加
             case "addUserInfo":{
                 String account=req.getParameter("account");
@@ -126,6 +142,8 @@ public class ServletAction extends HttpServlet {
                 break;
             }
             // 登录
+=======
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
             case "login":{
                 String account=req.getParameter("account");
                 String password=req.getParameter("password");
@@ -138,7 +156,11 @@ public class ServletAction extends HttpServlet {
                     }else{
                         jsonObject.put("ok",404);
                     }
+<<<<<<< HEAD
 //                    responseBack(req,resp,jsonObject);
+=======
+                    responseBack(req,resp,jsonObject);
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
                 } catch (SQLException | JSONException e) {
                     System.out.println("数据库查询出现异常！");
                     e.printStackTrace();
@@ -146,18 +168,26 @@ public class ServletAction extends HttpServlet {
                 break;
             }
 
+<<<<<<< HEAD
             // 注册
+=======
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
             case "register":{
                 String registerAccount=req.getParameter("account");
                 String password=req.getParameter("password");
                 String mail=req.getParameter("mail");
+<<<<<<< HEAD
 //                String code=req.getParameter("code");
+=======
+                String code=req.getParameter("code");
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
                 try {
                     if(sqlOp.Register(registerAccount,password,mail)){
                         jsonObject.put("ok",200);
                     }else{
                         jsonObject.put("ok",400);
                     }
+<<<<<<< HEAD
 //                    responseBack(req,resp,jsonObject);
                 } catch (SQLException | JSONException e) {
                     e.printStackTrace();
@@ -166,6 +196,16 @@ public class ServletAction extends HttpServlet {
             }
 
             // 判断注册信息是否合法
+=======
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+
+                break;
+            }
+
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
             case "isExisted":{
                 String mail=req.getParameter("mail");
                 String account=req.getParameter("account");
@@ -188,14 +228,21 @@ public class ServletAction extends HttpServlet {
                     }else if(status==0){
                         jsonObject.put("ok",200);
                     }
+<<<<<<< HEAD
 //                    responseBack(req,resp,jsonObject);
+=======
+                    responseBack(req,resp,jsonObject);
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
                 } catch (SQLException | JSONException e) {
                     e.printStackTrace();
                 }
                 break;
             }
 
+<<<<<<< HEAD
             // 发送验证码
+=======
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
             case "sendCode":{
                 String mail=req.getParameter("mail");
                 sendCode sendC=new sendCode(mail);
@@ -207,12 +254,17 @@ public class ServletAction extends HttpServlet {
                     }else{
                         jsonObject.put("ok",404);
                     }
+<<<<<<< HEAD
 //                    responseBack(req,resp,jsonObject);
+=======
+                    responseBack(req,resp,jsonObject);
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
                 } catch (EmailException | JSONException e) {
                     e.printStackTrace();
                 }
             }
 
+<<<<<<< HEAD
             // 导出文件
             case "exportFile":{
                 // 该json用于保存导出的数据
@@ -232,20 +284,98 @@ public class ServletAction extends HttpServlet {
                     // 转excel
                     jsonToFile.setJsonToExcel(json,jsonObject);
                     System.out.println(jsonObject);
+=======
+            case "showWarningTable":
+                String isOrdered=req.getParameter("isOrdered");
+                System.out.println("isOrdered="+isOrdered);
+                try {
+                    responseBack(req,resp,sqlOp.showWarningTable(isOrdered));
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "addWarningRecord":
+                String warningRecord=req.getParameter("warning_record");
+                String greenhouseId=req.getParameter("greenhouse_id");
+
+                try {
+                    if(sqlOp.addWarningRecord(warningRecord,greenhouseId)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
                 } catch (SQLException | JSONException e) {
                     e.printStackTrace();
                 }
                 break;
+<<<<<<< HEAD
             }
 
             // 设备管理模块开始
             case "getDeviceRecord":{
                 try {
                     jsonObject=sqlOp.getDeviceRecord();
+=======
+
+            case "deleteWarningRecord":
+                String warningId=req.getParameter("id");
+
+                try {
+                    if(sqlOp.deleteWarningRecord(warningId)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "modifyWarningRecord":
+                String modifyWarningRecord=req.getParameter("warning_record");
+                int modifyWarningId=Integer.parseInt(req.getParameter("warning_id"));
+                String modifyGreenhouseId=req.getParameter("greenhouse_id");
+
+                try {
+                    if(sqlOp.modifyWarningRecord(modifyWarningRecord,modifyGreenhouseId,modifyWarningId)){
+                        jsonObject.put("ok",200);
+                        System.out.println("成功修改");
+                    }else{
+                        System.out.println("修改失败");
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "exportWarningRecord":
+                try {
+                    JSONObject json=sqlOp.showWarningTable("false");
+//                    getExportWarningRecordToFile(json);
+                    getExportWarningRecordToExcel(json);
+                    json.put("ok",200);
+                    responseBack(req,resp,json);
                 } catch (JSONException | SQLException e) {
                     e.printStackTrace();
                 }
                 break;
+
+            case "statisticWarningRecord":
+                try {
+                    System.out.println("进入统计ServletAction");
+                    responseBack(req,resp,sqlOp.statisticWarningTable());
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+<<<<<<< HEAD
             }
 
             case "addDeviceInfo":{
@@ -261,10 +391,20 @@ public class ServletAction extends HttpServlet {
                 try {
                     sqlOp.addDeviceInfo(map);
                     jsonObject.put("ok",200);
+=======
+
+            case "queryWarningRecord":
+                warningRecord=req.getParameter("warning_record");
+                greenhouseId=req.getParameter("greenhouse_id");
+
+                try {
+                    responseBack(req,resp,sqlOp.queryWarningRecord(warningRecord,greenhouseId));
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
                 } catch (SQLException | JSONException e) {
                     e.printStackTrace();
                 }
                 break;
+<<<<<<< HEAD
             }
 
             case "modifyDeviceInfo":{
@@ -298,11 +438,114 @@ public class ServletAction extends HttpServlet {
             }
             // 设备管理模块结束
 
+=======
+
+            case "showSalaryTable":
+                isOrdered=req.getParameter("isOrdered");
+                System.out.println("isOrdered="+isOrdered);
+                try {
+                    responseBack(req,resp,sqlOp.showSalaryTable(isOrdered));
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "addSalaryRecord":
+                String employee_id=req.getParameter("employee_id");
+                String employee_name=req.getParameter("employee_name");
+                String employee_duty=req.getParameter("employee_duty");
+                String salary_number=req.getParameter("salary_number");
+                String salary_remark=req.getParameter("salary_remark");
+                String salary_month=req.getParameter("salary_month");
+
+                try {
+                    if(sqlOp.addSalaryRecord(employee_id,employee_name,employee_duty,salary_number,salary_remark,salary_month)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "deleteSalaryRecord":
+                String salary_id=req.getParameter("salary_id");
+
+                try {
+                    if(sqlOp.deleteSalaryRecord(salary_id)){
+                        jsonObject.put("ok",200);
+                    }else{
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "modifySalaryRecord":
+                salary_id=req.getParameter("salary_id");
+                employee_id=req.getParameter("employee_id");
+                employee_name=req.getParameter("employee_name");
+                employee_duty=req.getParameter("employee_duty");
+                salary_number=req.getParameter("salary_number");
+                salary_remark=req.getParameter("salary_remark");
+                salary_month=req.getParameter("salary_month");
+
+                try {
+                    if(sqlOp.modifySalaryRecord(salary_id,employee_id,employee_name,employee_duty,salary_number,salary_remark,salary_month)){
+                        jsonObject.put("ok",200);
+                        System.out.println("成功修改");
+                    }else{
+                        System.out.println("修改失败");
+                        jsonObject.put("ok",400);
+                    }
+                    responseBack(req,resp,jsonObject);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "querySalaryRecord":
+                String query_employee_name=req.getParameter("employee_name");
+                String query_salary_month=req.getParameter("salary_month");
+
+                try {
+                    responseBack(req,resp,sqlOp.querySalaryRecord(query_employee_name,query_salary_month));
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "exportSalaryRecord":
+                try {
+                    JSONObject json=sqlOp.showSalaryTable("false");
+//                    getExportWarningRecordToFile(json);
+                    getExportSalaryRecordToExcel(json);
+                    json.put("ok",200);
+                    responseBack(req,resp,json);
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case "statisticSalaryRecord":
+                try {
+                    System.out.println("进入统计ServletAction!!!!");
+                    responseBack(req,resp,sqlOp.statisticSalaryTable());
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 
             default:{
                 break;
             }
         }
+<<<<<<< HEAD
 
         // 关闭数据库链接
         try {
@@ -312,6 +555,8 @@ public class ServletAction extends HttpServlet {
             System.out.println("回调失败！|| 数据库链接关闭失败!");
             e.printStackTrace();
         }
+=======
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
     }
 
     private void responseBack(HttpServletRequest request, HttpServletResponse response, JSONObject json) throws JSONException {
@@ -338,5 +583,39 @@ public class ServletAction extends HttpServlet {
             }
         }
 
+<<<<<<< HEAD
+=======
+    private void getExportWarningRecordToFile(JSONObject json) throws JSONException {
+        String jsonStr = json.toString();
+        File jsonFile = new File("D:\\test\\maintain\\device\\export_device.txt");
+        json.put("download_url","/test/maintain/device/export_device.txt");
+        try {
+            // 文件不存在就创建文件
+            if (!jsonFile.exists()) {
+                jsonFile.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(jsonFile.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fileWriter);
+            bw.write(jsonStr);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getExportWarningRecordToExcel(JSONObject json) throws JSONException, IOException {
+        MyExcel me=new MyExcel("D:\\test\\maintain\\device\\export_device.xls");
+        json.put("download_url","/test/maintain/device/export_device.xls");
+        json.put("file_path","D:\\test\\maintain\\device\\export_device.xls");
+        me.exportData(json);
+    }
+
+    private void getExportSalaryRecordToExcel(JSONObject json) throws JSONException, IOException {
+        MyExcel me=new MyExcel("C:\\upload\\maintain\\device\\export_salary.xls");
+        json.put("download_url","/upload/maintain/device/export_salary.xls");
+        json.put("file_path","C:\\upload\\maintain\\device\\export_salary.xls");
+        me.exportData(json);
+    }
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 
 }

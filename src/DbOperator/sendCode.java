@@ -6,7 +6,10 @@ import org.apache.commons.mail.SimpleEmail;
 
 import java.util.Random;
 
+<<<<<<< HEAD
 // 该类专用于发送验证码
+=======
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 public class sendCode {
 
     private final String destAddress;
@@ -25,9 +28,15 @@ public class sendCode {
 
             // 设置主机
             email.setHostName("smtp.qq.com");
+<<<<<<< HEAD
             email.setAuthentication("agriculture2019@foxmail.com", "bjgwpnliyrxcgfaa");
             email.setSSLOnConnect(true);
             email.setFrom("agriculture2019@foxmail.com");
+=======
+            email.setAuthentication("1540119048@qq.com", "bjgwpnliyrxcgfaa");
+            email.setSSLOnConnect(true);
+            email.setFrom("1540119048@qq.com");
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
             // 发送内容
             email.setCharset("UTF-8");
             email.setSubject("农业大棚信息管理系统");

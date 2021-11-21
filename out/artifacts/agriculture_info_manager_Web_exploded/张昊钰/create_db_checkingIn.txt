@@ -1,0 +1,23 @@
+drop table checkingin_file;
+
+-- 打卡管理数据表
+-- 打卡信息id checkingIn_id
+-- 打卡信息对应的雇员id employee_id
+-- 打卡信息对应的雇员name employee_name
+-- 打卡位置 checkingIn_position
+-- 是否打卡 whetherCheckingIn
+-- 打卡信息备注 checkingIn_remark
+-- 打卡信息录入时间 checkingIn_datetime
+
+create table warning_file
+(
+  checkingIn_id varchar(255),
+  employee_id varchar(255),
+  employee_name varchar(255),
+  checkingIn_position varchar(255),
+  whetherCheckingIn varchar(255),
+  checkingIn_remark varchar(255),
+  checkingIn_datetime datetime(),
+
+  primary key(checkingIn_id)
+);

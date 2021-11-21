@@ -26,7 +26,19 @@ $(function(){
 });
 // 实现页面跳转
 function getUserRecordTable(){
+<<<<<<< HEAD
     window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
+=======
+    alert("frame部分刷新");
+    window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
+    alert("刷新成功!");
+}
+
+function getWarningRecordTable(){
+    alert("frame部分刷新");
+    window.parent.frames['rightFrame'].location="warning_module/warning_table.html?_="+Math.random();
+    alert("刷新成功!");
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 }
 
 function getDeviceInfo(){
@@ -75,21 +87,37 @@ function getDeviceInfo(){
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>员工管理</div>
         <ul class="menuson">
+<<<<<<< HEAD
             <li><cite></cite><a href="#">查看员工信息</a><i></i></li>
             <!--        查看员工信息内包含内容：大棚信息表（导出、排序、统计）-->
             <li><cite></cite><a href="#">增加员工</a><i></i></li>
             <li><cite></cite><a href="#">删除员工</a><i></i></li>
             <li><cite></cite><a href="#">修改员工</a><i></i></li>
+=======
+            <li><cite></cite><a href="working_module/salary_table.html" target="rightFrame">员工工资管理</a><i></i></li>
+            <!--        查看员工信息内包含内容：工资信息表（导出、排序、统计）-->
+            <!--        查看员工信息内包含内容：考勤信息表（导出、排序、统计）-->
+            <li><cite></cite><a href="working_module/checkingIn_table.html" target="rightFrame">员工考勤管理</a><i></i></li>
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
         </ul>
     </dd>
 
 
+<<<<<<< HEAD
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
         <ul class="menuson">
             <li><cite></cite><a href="#">查看预警信息</a><i></i></li>
             <!--        查看预警信息内包含内容：预警信息表（导出、排序、统计）-->
             <li><cite></cite><a href="#">处理预警信息</a><i></i></li>
         </ul>
+=======
+    <dd onclick="getWarningRecordTable()"><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
+<!--        <ul class="menuson">-->
+<!--            <li><cite></cite><a href="#">查看预警信息</a><i></i></li>-->
+<!--            &lt;!&ndash;        查看预警信息内包含内容：预警信息表（导出、排序、统计）&ndash;&gt;-->
+<!--            <li><cite></cite><a href="#">处理预警信息</a><i></i></li>-->
+<!--        </ul>-->
+>>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
     </dd>
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>设备管理</div>
