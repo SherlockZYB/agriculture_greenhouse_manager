@@ -15,4 +15,14 @@
         <url-pattern>/Login_ServletAction</url-pattern>
     </servlet-mapping>
     
+    <!-- ================  salaryModule begin =================           -->
+    <servlet>
+        <servlet-name>salaryModule_file_servlet_action</servlet-name>
+        <servlet-class>salaryModule.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>salaryModule_file_servlet_action</servlet-name>
+        <url-pattern>/salaryModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  salaryModule end =================           -->
 </web-app>
