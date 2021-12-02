@@ -1,9 +1,5 @@
 package login.export;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -13,29 +9,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class JsonToFile {
     // 定义导出的路径信息
-<<<<<<< HEAD
-    final String txtPath="C:\\Users\\23632\\Desktop\\export\\export.txt";
-    final String excelPath="C:\\Users\\23632\\Desktop\\export\\export.xls";
-=======
-    final String txtPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\export.txt";
-    final String excelPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\export.xls";
-=======
-import com.sun.xml.internal.ws.util.FastInfosetUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
+    final String txtPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\";
+    final String excelPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\";
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+    String txtTemp="export";
+    String excelTemp="export";
 
-public class JsonToFile {
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
+    public JsonToFile(String tag){
+        this.txtTemp+=tag+new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".txt";
+        this.excelTemp+=tag+new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".xls";
+        System.out.println(this.txtTemp+".."+this.excelTemp);
+    }
 
 
     // 将JSON导出成TXT文件
@@ -43,15 +33,7 @@ public class JsonToFile {
         // JSON转字符串
         String jsonstr=jsonObject.toString();
 
-<<<<<<< HEAD
-        File jsonFile=new File(this.txtPath);
-=======
-<<<<<<< HEAD
-        File jsonFile=new File(this.txtPath);
-=======
-        File jsonFile=new File("C:\\Users\\23639\\Desktop\\JsonToFile\\export.txt");
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
+        File jsonFile=new File(this.txtPath+this.txtTemp);
         if(!jsonFile.exists()){
             jsonFile.createNewFile();
             System.out.println("创建文件成功!");
@@ -59,10 +41,6 @@ public class JsonToFile {
         // 写入文件
         FileWriter fileWriter=new FileWriter(jsonFile.getAbsoluteFile());
         BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 
         System.out.println("[sqlOperator/setJsonTOTxt]正在写入文件!");
         bufferedWriter.write(jsonstr);
@@ -70,27 +48,12 @@ public class JsonToFile {
         System.out.println("[sqlOperator/setJsonTOTxt]set JSON to Txt, success");
         // 使用JSON格式反馈下载路径
         JSONObject json=new JSONObject();
-        json.put("txtDownloadPath","/upLoad/export.txt");
+        json.put("txtDownloadPath","/upLoad/"+this.txtTemp);
         return json;
-<<<<<<< HEAD
-=======
-=======
-        bufferedWriter.close();
-        System.out.println("set JSON to Txt, success");
-        // 使用JSON格式反馈下载路径
-        JSONObject jsonPath=new JSONObject();
-        jsonPath.put("downloadPath","/upload/export.txt");
-        return jsonPath;
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     }
 
 
     // 将json导出成excel
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     public void setJsonToExcel(JSONObject json,JSONObject jsonObject) throws IOException, JSONException {
         HSSFWorkbook workbook=new HSSFWorkbook();
         HSSFSheet sheet=workbook.createSheet("sheet0");
@@ -118,20 +81,12 @@ public class JsonToFile {
                 j++;
             }
         }
-        FileOutputStream outputStream=new FileOutputStream(this.excelPath);
+        FileOutputStream outputStream=new FileOutputStream(this.excelPath+this.excelTemp);
         workbook.write(outputStream);
         outputStream.flush();
         outputStream.close();
-        jsonObject.put("excelDownloadPath","/upLoad/export.xls");
+        jsonObject.put("excelDownloadPath","/upLoad/"+this.excelTemp);
         jsonObject.put("ok",200);
-<<<<<<< HEAD
-=======
-=======
-    public void setJsonToExcel(JSONObject jsonObject){
-
-
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         System.out.println("set JSON to excel, success");
     }
 

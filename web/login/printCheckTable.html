@@ -9,7 +9,7 @@
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="DataTable/js/jquery.min.js"></script>
 
-<body onload="initDataTable()">
+<body onload="initCheckTable()">
 <!--位置div-->
 
 <!--DataTable-->
@@ -19,15 +19,10 @@
             <thead>
             <tr>
                 <th class="table-checkbox"><input type="checkbox" class="group-checkable" data-set="#record_list .checkboxes" /></th>
-                <th>用户名</th>
-                <th>mail</th>
-                <th>用户权限级别</th>
-                <th>姓名</th>
-                <th>性别</th>
+                <th>申请用户名</th>
+                <th>注册邮箱</th>
+                <th>注册密码</th>
                 <th>注册日期</th>
-                <th>最后登录日期</th>
-                <th>用户信息最后修改日期</th>
-                <th>是否员工(1 是 | 0 不是)</th>
             </tr>
             </thead>
         </table>
@@ -45,15 +40,12 @@
     let sort=data[1];
     // 获取上页传入的信息
     sort=decodeURI(sort);
-    function initDataTable(){
-        // 初始化DataTable！
-        init();
-    }
-
-    function init(){
+    function initCheckTable(){
+        resultList=[];
         $('.datatable').dataTable({
             "paging": true,
-            "searching": false,
+            "searching": true,
+            "retrieve":true,
             "oLanguage": {
                 "aria": {
                     "sortAscending": ": activate to sort column ascending",
@@ -66,7 +58,7 @@
                 "sInfoEmpty": "显示第 0 至 0 项记录，共 0 项",
                 "sInfoFiltered": "(由 _MAX_ 项记录过滤)",
                 "sInfoPostFix": "",
-                "sSearch": "过滤:",
+                "sSearch": "查询:",
                 "oPaginate": {
                     "sFirst": "首页",
                     "sPrevious": "上页",
@@ -76,67 +68,41 @@
             },
             "aoColumns": [{
                 "mRender": function (data, type, full) {
+                    console.log(full)
                     sReturn = '<input type="checkbox" class="checkboxes" value="' + data + '"/>';
                     return sReturn;
                 }, "orderable": false
             }, {
                 "mRender": function (data, type, full) {
+                    // 申请注册用户名
                     sReturn = "<div>"+full.account+"</div>";
                     return sReturn;
-                }, "orderable": false
+                }, "orderable": true
             }, {
                 "mRender": function (data, type, full) {
+                    // 申请注册邮箱
                     sReturn = "<div>"+full.mail+"</div>";
                     return sReturn;
-                }, "orderable": false
+                }, "orderable": true
             }, {
                 "mRender": function (data, type, full) {
-                    sReturn = "<div>"+full.userLevel+"</div>";
+                    // 申请注册密码
+                    sReturn = "<div>"+full.PASSWORD+"</div>";
                     return sReturn;
-                }, "orderable": false
-            }, {
-                "mRender": function (data, type, full) {
-                    sReturn ="<div>"+full.userName+"</div>";
-                    return sReturn;
-                }, "orderable": false
+                }, "orderable": true
             },{
                 "mRender": function (data, type, full) {
-                    sReturn = "<div>"+full.userGender+"</div>";
+                    // 申请注册日期
+                    sReturn = "<div>"+full.applyDate+"</div>";
                     return sReturn;
-                }, "orderable": false
-            },{
-                "mRender": function (data, type, full) {
-                    sReturn = "<div>"+full.signUpDate+"</div>";
-                    return sReturn;
-                }, "orderable": false
-            },{
-                "mRender": function (data, type, full) {
-                    sReturn = "<div>"+full.lastLoginDate+"</div>";
-                    return sReturn;
-                }, "orderable": false
-            },{
-                "mRender": function (data, type, full) {
-                    sReturn = "<div>"+full.lastModifyDate+"</div>";
-                    return sReturn;
-                }, "orderable": false
-            },{
-                "mRender": function (data, type, full) {
-                    let temp;
-                    if(full.isWorker===1){
-                        temp="是";
-                    }else{
-                        temp="否";
-                    }
-                    sReturn = "<div>"+temp+"</div>";
-                    return sReturn;
-                }, "orderable": false
+                }, "orderable": true
             }],
             "aLengthMenu": [[5, 10, 15, 20, 25, 40, 50, -1], [5, 10, 15, 20, 25, 40, 50, "所有记录"]],
             "fnDrawCallback": function () {
                 $(".checkboxes").uniform();
                 $(".group-checkable").uniform();
             },
-            "sAjaxSource": "../Login_ServletAction?Action=getUserRecord&sort="+sort
+            "sAjaxSource": "../Login_ServletAction?Action=getApplyRecord&sort="+sort
         });
         $('.datatable').find('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");

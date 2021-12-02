@@ -155,7 +155,7 @@
 
 
     function login(account, password){
-        let url="../ServletAction";
+        let url="../Login_ServletAction";
         let message={};
         message.Action="login";
         message.account=account;
@@ -191,7 +191,7 @@
             document.getElementById("signUpAccount").innerText="用户名          用户名过长！"
             signUpAccountRegular=false;
         } else if(registerAccount.value!==""){
-            let url="../ServletAction";
+            let url="../Login_ServletAction";
             let account=registerAccount.value;
             let message={};
             message.Action="isExisted";
@@ -266,7 +266,7 @@
     // 判断邮箱是否被注册过
     mailAddress.onblur=function (){
         if(mailRegular){
-            let url="../ServletAction";
+            let url="../Login_ServletAction";
             let mail=mailAddress.value;
             let message={};
             message.Action="isExisted";
@@ -315,7 +315,7 @@
             getBtn.value="重新发送("+countTime+"s)";
             if(flagCode){
                 if(countTime===58){
-                    let url="../ServletAction";
+                    let url="../Login_ServletAction";
                     let message={};
                     message.Action="sendCode";
                     message.mail=document.getElementById("mailAddress").value;
@@ -353,7 +353,7 @@
         let password = document.getElementById("registerPassword").value;
         let mail = document.getElementById("mailAddress").value;
         let code = document.getElementById("mailCode").value;
-        let url = "../ServletAction";
+        let url = "../Login_ServletAction";
         let message = {};
         if (!passwordRegular || !signUpAccountRegular || !mailRegular || !codeRegular || !codeRegular) {
             alert("请确保所有信息填写完整且正确！");

@@ -16,7 +16,7 @@
 
     function init(){
         alert("开始统计");
-        let url="../ServletAction";
+        let url="../Login_ServletAction";
         let message={};
         message.Action="statisticsUserInfo";
         $.post(url,message,function (json){
@@ -31,6 +31,7 @@
     }
 
     function initTable(json){
+        // console.log(json);
         let myChart = echarts.init(document.getElementById('main'));
         const option = {
             color: ['#30c4de'],
