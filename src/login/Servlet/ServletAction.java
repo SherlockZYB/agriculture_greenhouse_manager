@@ -1,5 +1,6 @@
 package login.Servlet;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import login.DbOperator.sendCode;
 import login.DbOperator.sqlOperator;
 import login.export.JsonToFile;
@@ -13,29 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.HashMap;
-=======
-<<<<<<< HEAD
-import java.util.HashMap;
-=======
-import java.util.ArrayList;
-import java.util.List;
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 
 public class ServletAction extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.doGet(req, resp);
         System.out.println("执行doGet!");
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.doPost(req, resp);
         System.out.println("执行doPost!");
 
     }
@@ -49,10 +39,6 @@ public class ServletAction extends HttpServlet {
         String action=req.getParameter("Action");
         sqlOperator sqlOp=new sqlOperator();
         switch (action){
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
             // 此增加功能只能进行用户表的增加
             case "addUserInfo":{
                 String account=req.getParameter("account");
@@ -63,7 +49,7 @@ public class ServletAction extends HttpServlet {
                 HashMap map=new HashMap();
                 map.put("account",account);
                 map.put("mail",mail);
-                map.put("password",password);
+                map.put("PASSWORD",password);
                 map.put("userLevel",userLevel);
                 map.put("isWorker",isWorker);
                 try {
@@ -77,6 +63,7 @@ public class ServletAction extends HttpServlet {
 
             // 此delete可以对不同的数据表进行适配
             case "deleteInfo":{
+                System.out.println("[Login_ServletAction]:deleteInfo");
                 String id=req.getParameter("id");
                 String dbName=req.getParameter("tableName");
                 System.out.println("ID:"+id+"  Dbname:"+dbName);
@@ -89,6 +76,7 @@ public class ServletAction extends HttpServlet {
                 break;
             }
 
+            // 对用户信息表进行modify
             case "modifyUserInfo":{
                 String id=req.getParameter("id");
                 String account=req.getParameter("account");
@@ -114,6 +102,7 @@ public class ServletAction extends HttpServlet {
                 break;
             }
 
+            // 统计数据
             case "statisticsUserInfo":{
                 try {
                     jsonObject=sqlOp.StatisticsUserRecord();
@@ -126,21 +115,13 @@ public class ServletAction extends HttpServlet {
 
                 break;
             }
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
+
             // 获取用户信息，用于构成DataTable
             case "getUserRecord":{
                 String sort=req.getParameter("sort");
                 System.out.println(sort);
                 try {
                     jsonObject=sqlOp.getUserRecord(sort);
-<<<<<<< HEAD
-=======
-=======
-            case "getRecord":{
-                try {
-                    jsonObject=sqlOp.getRecord();
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
                 } catch (SQLException | JSONException e) {
                     System.out.println("获取数据失败!");
                     e.printStackTrace();
@@ -173,7 +154,6 @@ public class ServletAction extends HttpServlet {
                 String registerAccount=req.getParameter("account");
                 String password=req.getParameter("password");
                 String mail=req.getParameter("mail");
-//                String code=req.getParameter("code");
                 try {
                     if(sqlOp.Register(registerAccount,password,mail)){
                         jsonObject.put("ok",200);
@@ -229,7 +209,6 @@ public class ServletAction extends HttpServlet {
                     }else{
                         jsonObject.put("ok",404);
                     }
-//                    responseBack(req,resp,jsonObject);
                 } catch (EmailException | JSONException e) {
                     e.printStackTrace();
                 }
@@ -237,10 +216,6 @@ public class ServletAction extends HttpServlet {
 
             // 导出文件
             case "exportFile":{
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
                 // 该json用于保存导出的数据
                 JSONObject json=new JSONObject();
                 System.out.println("正在导出");
@@ -248,11 +223,10 @@ public class ServletAction extends HttpServlet {
                 String name=req.getParameter("tableName");
                 System.out.println("将要操作的表:"+name);
                 try {
-                    // 获取到查询结果的json
                     json=sqlOp.getRecord(name);
 
                     // JSON导出文件的工具类对象
-                    JsonToFile jsonToFile=new JsonToFile();
+                    JsonToFile jsonToFile=new JsonToFile(req.getParameter("tag"));
                     jsonObject=jsonToFile.setJsonTOTxt(json);
 
                     // 转excel
@@ -265,7 +239,6 @@ public class ServletAction extends HttpServlet {
             }
 
             // 获取设备信息
-<<<<<<< HEAD
             case "getDeviceRecord":{
                 try {
                     jsonObject=sqlOp.getDeviceRecord();
@@ -275,84 +248,85 @@ public class ServletAction extends HttpServlet {
                 break;
             }
 
-            case "addDeviceInfo":{
-                HashMap map=new HashMap();
-                map.put("deviceNum",req.getParameter("deviceNum"));
-                map.put("deviceName",req.getParameter("deviceName"));
-                map.put("deviceCompany",req.getParameter("deviceCompany"));
-                map.put("devicePrice",req.getParameter("devicePrice"));
-                map.put("deviceLocation",req.getParameter("deviceLocation"));
-                map.put("deviceStatus",req.getParameter("deviceStatus"));
+            // 获取用户注册表信息
+            case "getApplyRecord":{
+                System.out.println("[Login_ServletAction]:getApplyRecord");
+                String sort=req.getParameter("sort");
+                System.out.println(sort);
                 try {
-                    sqlOp.addDeviceInfo(map);
-                    jsonObject.put("ok",200);
+                    jsonObject=sqlOp.getApplyRecord(sort);
+                    System.out.println("jsonObject:"+jsonObject);
                 } catch (SQLException | JSONException e) {
                     e.printStackTrace();
                 }
                 break;
             }
+            // 添加用户注册信息表
+            case "addApplyInfo":{
+                System.out.println("[Login_ServletAction]:addApplyInfo");
+                String account=req.getParameter("account");
+                String mail=req.getParameter("mail");
+                String password=req.getParameter("password");
+                HashMap map=new HashMap();
+                map.put("account",account);
+                map.put("mail",mail);
+                map.put("password",password);
+                try {
+                    sqlOp.addApplyInfo(map);
+                    jsonObject.put("ok",200);
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
 
-            case "deleteInfo":{
-                String tablename=req.getParameter("tableName");
+            case "modifyApplyInfo":{
                 String id=req.getParameter("id");
-                try {
-                    sqlOp.DeleteRecord(id,tablename);
-                    jsonObject.put("ok",200);
-                } catch (SQLException | JSONException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-
-            case "modifyDeviceInfo":{
                 HashMap map=new HashMap();
-                map.put("deviceNum",req.getParameter("deviceNum"));
-                map.put("deviceLocation",req.getParameter("deviceLocation"));
-                map.put("deviceStatus",req.getParameter("deviceStatus"));
-                map.put("deviceId",req.getParameter("id"));
+                map.put("account",req.getParameter("account"));
+                map.put("mail",req.getParameter("mail"));
+                map.put("password",req.getParameter("password"));
                 try {
-                    sqlOp.ModifyDeviceInfo(map);
+                    sqlOp.ModifyApplyRecord(Integer.parseInt(id),map);
                     jsonObject.put("ok",200);
-                } catch (SQLException | JSONException e) {
-                    e.printStackTrace();
-                }
-
-                break;
-            }
-
-            case "StatisticsDeviceInfo":{
-                try {
-                    jsonObject=sqlOp.StatisticsDeviceInfo();
-                    jsonObject.put("ok",200);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                break;
-=======
-=======
-                // 从前端获取json
-
-                String json =req.getParameter("json");
-                System.out.println("从前端获取到JSON:"+json);
-                JsonToFile jsonToFile=new JsonToFile();
-//                jsonObject=jsonToFile.setJsonTOTxt();
-            }
-
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
-            case "getDeviceRecord":{
-                try {
-                    jsonObject=sqlOp.getDeviceRecord();
                 } catch (JSONException | SQLException e) {
                     e.printStackTrace();
                 }
-<<<<<<< HEAD
                 break;
-=======
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
+            }
+
+            // 普通管理员审核用户注册信息
+            case "refuseApply":{
+                System.out.println("[Login_ServletAction]:refuseApply");
+                String id=req.getParameter("id");
+                // 是否全部拒绝？
+                boolean refAll= id == null;
+                try {
+                    sqlOp.dealApply(id,refAll,"refuse");
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            // 普通管理员审核用户注册信息
+            case "agreeApply":{
+                System.out.println("[Login_ServletAction]:agreeApply");
+                String id=req.getParameter("id");
+                // 是否全部允许?
+                boolean agrAll=false;
+                String all=req.getHeader("all");
+                if(all.equals("yes")){
+                    agrAll=true;
+                }
+                try {
+                    sqlOp.dealApply(id,agrAll,"agree");
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
             }
 
             default:{
@@ -393,8 +367,5 @@ public class ServletAction extends HttpServlet {
             }
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 }

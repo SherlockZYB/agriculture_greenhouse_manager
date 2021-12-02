@@ -14,7 +14,7 @@ public class sendCode {
 
     public sendCode(String destAddress){
         this.destAddress=destAddress;
-        System.out.println(destAddress);
+        System.out.println("destAddress:"+destAddress);
         this.code=verifyCode(6);
     }
 
@@ -40,6 +40,28 @@ public class sendCode {
             System.out.println("邮件发送失败！");
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public void sendApplyResult(String result){
+        try{
+            Email email = new SimpleEmail();
+
+            // 设置主机
+            email.setHostName("smtp.qq.com");
+            email.setAuthentication("agriculture2019@foxmail.com", "bjgwpnliyrxcgfaa");
+            email.setSSLOnConnect(true);
+            email.setFrom("agriculture2019@foxmail.com");
+            // 发送内容
+            email.setCharset("UTF-8");
+            email.setSubject("农业大棚信息管理系统");
+            email.setMsg("你好，您申请注册农业大棚，已经管理员审核："+result+"感谢您的支持!!!"+"\n@农业大棚信息管理系统");
+            // 接收方邮箱
+            email.addTo(this.destAddress);
+            email.send();
+        }catch (Exception e){
+            System.out.println("邮件发送失败！");
+            e.printStackTrace();
         }
     }
 

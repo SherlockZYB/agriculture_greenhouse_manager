@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>left_main.html</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="js/jquery.js"></script>
+<script language="JavaScript" src="js/jquery.js" type=""></script>
+<script language="JavaScript" src="login/UserManagerControl.js"  type=""></script>
 
 <script type="text/javascript">
 $(function(){	
@@ -24,23 +25,20 @@ $(function(){
 		}
 	});
 });
-// 实现页面跳转
-function getUserRecordTable(){
-<<<<<<< HEAD
-    window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
-=======
-    alert("frame部分刷新");
-    window.parent.frames['rightFrame'].location="login/DataTable.html?_="+Math.random();
-    alert("刷新成功!");
+// 加载菜单栏
+function init(){
+    let account=sessionStorage.getItem("account");
+    let level=sessionStorage.getItem("level");
+    // 一旦有一个为null,那么就重新登录
+    if(account==null || level==null){
+        alert("登录超时，请重新登录!");
+        window.location.href="login/login.html";
+    }
+    // js动态处理Menu
+    UserMenuControl(level);
 }
 
-function getWarningRecordTable(){
-    alert("frame部分刷新");
-    window.parent.frames['rightFrame'].location="warning_module/warning_table.html?_="+Math.random();
-    alert("刷新成功!");
->>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
-}
-
+// 查看设备信息
 function getDeviceInfo(){
     window.parent.frames['rightFrame'].location="DeviceManage/deviceDatatable.html?_="+Math.random();
 }
@@ -49,7 +47,7 @@ function getDeviceInfo(){
 
 </head>
 
-<body style="background:#f0f9fd;">
+<body style="background:#f0f9fd;" onload="init()">
 	<div class="lefttop"><span></span>通讯录</div>
     <dl class="leftmenu">
 
@@ -57,13 +55,10 @@ function getDeviceInfo(){
     <div class="title">
     <span><img src="images/leftico02.png" /></span>用户管理
     </div>
-    <ul class="menuson">
-        <li><cite></cite><a onclick="getUserRecordTable()">查看用户</a><i></i></li>
-<!--        查看用户信息内包含内容：用户信息表（导出、排序、统计）-->
-        <li><cite></cite><a>删除用户</a><i></i></li>
-        <li><cite></cite><a>更改用户</a><i></i></li>
-
-        </ul>
+    <ul class="menuson" id="ManagerUser">
+        <li><cite></cite><a>查看个人信息</a><i></i></li>
+        <li><cite></cite><a>完善个人信息</a><i></i></li>
+    </ul>
     </dd> 
     
     
@@ -87,37 +82,21 @@ function getDeviceInfo(){
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>员工管理</div>
         <ul class="menuson">
-<<<<<<< HEAD
             <li><cite></cite><a href="#">查看员工信息</a><i></i></li>
             <!--        查看员工信息内包含内容：大棚信息表（导出、排序、统计）-->
             <li><cite></cite><a href="#">增加员工</a><i></i></li>
             <li><cite></cite><a href="#">删除员工</a><i></i></li>
             <li><cite></cite><a href="#">修改员工</a><i></i></li>
-=======
-            <li><cite></cite><a href="working_module/salary_table.html" target="rightFrame">员工工资管理</a><i></i></li>
-            <!--        查看员工信息内包含内容：工资信息表（导出、排序、统计）-->
-            <!--        查看员工信息内包含内容：考勤信息表（导出、排序、统计）-->
-            <li><cite></cite><a href="working_module/checkingIn_table.html" target="rightFrame">员工考勤管理</a><i></i></li>
->>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
         </ul>
     </dd>
 
 
-<<<<<<< HEAD
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
         <ul class="menuson">
             <li><cite></cite><a href="#">查看预警信息</a><i></i></li>
             <!--        查看预警信息内包含内容：预警信息表（导出、排序、统计）-->
             <li><cite></cite><a href="#">处理预警信息</a><i></i></li>
         </ul>
-=======
-    <dd onclick="getWarningRecordTable()"><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
-<!--        <ul class="menuson">-->
-<!--            <li><cite></cite><a href="#">查看预警信息</a><i></i></li>-->
-<!--            &lt;!&ndash;        查看预警信息内包含内容：预警信息表（导出、排序、统计）&ndash;&gt;-->
-<!--            <li><cite></cite><a href="#">处理预警信息</a><i></i></li>-->
-<!--        </ul>-->
->>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
     </dd>
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>设备管理</div>

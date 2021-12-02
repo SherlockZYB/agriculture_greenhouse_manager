@@ -4,81 +4,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     <!--此处注册servlet-->
     <servlet>
-        <servlet-name>ServletAction</servlet-name>
+        <servlet-name>Login_ServletAction</servlet-name>
         <servlet-class>login.Servlet.ServletAction</servlet-class>
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
-    <!--此处注册servlet-->
-    <servlet>
-        <servlet-name>ServletAction</servlet-name>
-        <servlet-class>Servlet.ServletAction</servlet-class>
-<<<<<<< HEAD
-=======
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
->>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ServletAction</servlet-name>
-        <url-pattern>/ServletAction</url-pattern>
+        <servlet-name>Login_ServletAction</servlet-name>
+        <url-pattern>/Login_ServletAction</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
     
-=======
-<<<<<<< HEAD
-    
-=======
-<<<<<<< HEAD
-    
-=======
-
-
-    <!-- ================  warningModule begin =================           -->
-    <servlet>
-        <servlet-name>warningModule_file_servlet_action</servlet-name>
-        <servlet-class>warningModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>warningModule_file_servlet_action</servlet-name>
-        <url-pattern>/warningModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  warningModule end =================           -->
-
-    <!-- ================  workingModule begin =================           -->
-    <servlet>
-        <servlet-name>workingModule_file_servlet_action</servlet-name>
-        <servlet-class>workingModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>workingModule_file_servlet_action</servlet-name>
-        <url-pattern>/workingModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  workingModule end =================           -->
-
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
-<!-- ================  greenhouseModule begin =================           -->
-    <servlet>
-        <servlet-name>greenhouseModule_file_servlet_action</servlet-name>
-        <servlet-class>greenhouseModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>greenhouseModule_file_servlet_action</servlet-name>
-        <url-pattern>/greenhouseModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  greenhouseModule end =================           -->
-
->>>>>>> 117581ba5fc9261dccc0ee1f9cbdde35e639c486
 </web-app>
