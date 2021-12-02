@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="DataTable/css/bootstrap.min.css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="DataTable/js/jquery.min.js"></script>
-<<<<<<< HEAD
 <style>
     .SortSure,.SortCancel,.AddSure{
         width:96px; height:35px; line-height:35px; color:#fff; background:url(../images/btnbg1.png) repeat-x; font-size:14px; font-weight:bold;border-radius: 3px; cursor:pointer;
@@ -31,8 +30,6 @@
     }
 </style>
 
-=======
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 <body onload="initDataTable()">
 <!--位置div-->
 <div class="place">
@@ -48,23 +45,12 @@
     <div class="tools">
 
         <ul class="toolbar">
-<<<<<<< HEAD
             <li onclick="AddShow()"><img src="../images/t01.png" />添加</li>
-            <li class="click"><img src="../images/t02.png" />修改</li>
-            <li><img src="../images/t03.png" />删除</li>
-            <li onclick="Search()"><img src="img/search.png" />查询</li>
             <li onclick="window.location.href='Statistics.html'"><img src="../images/t04.png" />统计</li>
             <li onclick="Export()"><img src="img/export.png" />导出</li>
             <li onclick="Print()"><img src="img/print.png" />打印</li>
             <li onclick="Order()"><img src="img/sort.png" />排序</li>
 
-=======
-            <li class="click"><img src="../images/t01.png" />添加</li>
-            <li class="click"><img src="../images/t02.png" />修改</li>
-            <li><img src="../images/t03.png" />删除</li>
-            <li><img src="../images/t04.png" />统计</li>
-            <li onclick="Export()"><img src="img/export.png" />导出</li>
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         </ul>
 
 
@@ -72,11 +58,7 @@
             <li><img src="../images/t05.png" />设置</li>
         </ul>
     </div>
-<<<<<<< HEAD
     <div style="position: relative; width: 90%">
-=======
-    <div>
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         <table class="table table-striped table-bordered table-hover datatable" id="record_list">
             <thead>
             <tr>
@@ -89,16 +71,12 @@
                 <th>设备所属大棚</th>
                 <th>设备工作状态</th>
                 <th>设备修改日期</th>
-<<<<<<< HEAD
                 <th>填写操作</th>
-=======
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             </tr>
             </thead>
         </table>
     </div>
 
-<<<<<<< HEAD
     <div class="tip" id="tip">
         <div class="tiptop"><span>提示信息</span><a></a></div>
 
@@ -214,8 +192,6 @@
 
     </div>
 
-=======
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 
 </div>
 </body>
@@ -224,7 +200,6 @@
 <script type="text/javascript" src="DataTable/js/jquery.dataTables.min.js"></script>
 
 <script>
-<<<<<<< HEAD
 
     function AddShow(){
         let greenhouse=[];
@@ -262,7 +237,7 @@
         message.devicePrice=devicePrice;
         message.deviceLocation=deviceLocation;
         message.deviceStatus=deviceStatus;
-        let url="../ServletAction";
+        let url="../Device_ServletAction";
         $.post(url,message,function(json){
             if(json.ok===200){
                 // 重新加载页面
@@ -277,37 +252,26 @@
 
     let result=[];
 
-=======
-    let result=[];
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
     function Export() {
         // 建议JAVA后端查询得到的JSON直接导出，而不是前端向后端传递JSON再导出
         let message = {};
-        let url = "../ServletAction"
+        let url = "../Device_ServletAction"
         message.Action = "exportFile";
-<<<<<<< HEAD
         message.tableName='deviceinfo';
-=======
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
         message.json = result.toString();
         console.log(result.toString());
         $.post(url, message, function (json) {
             if (json.ok === 200) {
-<<<<<<< HEAD
                 tip.style.display="block";
                 document.getElementById("flag").innerText="导出成功!";
                 $("#txtDownLoadHref").attr("href",json.txtDownloadPath);
                 $("#excelDownLoadHref").attr("href",json.excelDownloadPath);
-=======
-
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             } else {
                 alert("导出失败！")
             }
         });
     }
     function initDataTable(){
-<<<<<<< HEAD
         $(".sure").click(function (){
             $(".tip").fadeOut(100);
         });
@@ -321,7 +285,7 @@
         init();
     }
      function Print(){
-         window.parent.location.href="print.html?";
+         window.open("print.html");
      }
     function Order() {
                 alert("点击表头进行排序")
@@ -333,19 +297,6 @@
         $('.datatable').dataTable({
             "paging": true,
             "searching": true,
-=======
-        init();
-    }
-
-    function init(){
-        $('.datatable').dataTable({
-            "paging": true,
-<<<<<<< HEAD
-            "searching": true,
-=======
-            "searching": false,
->>>>>>> e7cd7b6bd24ce9294431a1282b9c7ac8c306c4d2
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             "oLanguage": {
                 "aria": {
                     "sortAscending": ": activate to sort column ascending",
@@ -358,7 +309,7 @@
                 "sInfoEmpty": "显示第 0 至 0 项记录，共 0 项",
                 "sInfoFiltered": "(由 _MAX_ 项记录过滤)",
                 "sInfoPostFix": "",
-                "sSearch": "过滤:",
+                "sSearch": "查询:",
                 "oPaginate": {
                     "sFirst": "首页",
                     "sPrevious": "上页",
@@ -371,70 +322,41 @@
                     result.push(full);
                     sReturn = '<input type="checkbox" class="checkboxes" value="' + data + '"/>';
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             }, {
                 "mRender": function (data, type, full) {
                     sReturn = "<div>"+full.deviceId+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             }, {
                 "mRender": function (data, type, full) {
                     sReturn = "<div>"+full.deviceNum+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             }, {
                 "mRender": function (data, type, full) {
                     sReturn = "<div>"+full.deviceName+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             }, {
                 "mRender": function (data, type, full) {
                     sReturn ="<div>"+full.devicePrice+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             },{
                 "mRender": function (data, type, full) {
                     sReturn = "<div>"+full.deviceCompany+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             },{
                 "mRender": function (data, type, full) {
                     sReturn = "<div>"+full.deviceLocation+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
-=======
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             },{
                 "mRender": function (data, type, full) {
                     sReturn = "<div>"+full.deviceStatus+"</div>";
                     return sReturn;
-<<<<<<< HEAD
                 }, "orderable": true
             },{
                 "mRender": function (data, type, full) {
@@ -448,21 +370,13 @@
                     sReturn = "<a href=\"javascript:ModifyDevice("+full.deviceId+")\">【修改设备信息】</a><a href=\"javascript:DeleteDevice(" + full.deviceId + ")\">【删除设备】</a>";
                     return sReturn;
                 }, "orderable": true
-=======
-                }, "orderable": false
-            },{
-                "mRender": function (data, type, full) {
-                    sReturn = "<div>"+full.deviceModifyTime+"</div>";
-                    return sReturn;
-                }, "orderable": false
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
             }],
             "aLengthMenu": [[5, 10, 15, 20, 25, 40, 50, -1], [5, 10, 15, 20, 25, 40, 50, "所有记录"]],
             "fnDrawCallback": function () {
                 $(".checkboxes").uniform();
                 $(".group-checkable").uniform();
             },
-            "sAjaxSource": "../ServletAction?Action=getDeviceRecord"
+            "sAjaxSource": "../Device_ServletAction?Action=getDeviceRecord"
         });
         $('.datatable').find('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");
@@ -482,7 +396,6 @@
             $(this).parents('tr').toggleClass("active");
         });
     };
-<<<<<<< HEAD
 
     let modifyid;
     function ModifyDevice(id){
@@ -511,7 +424,7 @@
 
     function ModifyDeviceRecord(){
         let message={};
-        let url="../ServletAction";
+        let url="../Device_ServletAction";
         message.id=modifyid;
         let newDeviceNum=document.getElementById("newDeviceNum").value;
         let newDeviceLocation=document.getElementById("newDeviceLocation").value;
@@ -538,7 +451,7 @@
     function DeleteDevice(id){
         if(confirm("您确定要删除这条记录吗？")){
             if(id>-1){
-                let url="../ServletAction";
+                let url="../Device_ServletAction";
                 let message={};
                 message.Action="deleteInfo";
                 message.id=id;
@@ -555,7 +468,5 @@
             }
         }
     }
-=======
->>>>>>> 57168512e5fb467f357fee5b0e0426108031416d
 </script>
 </html>

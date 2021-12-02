@@ -114,7 +114,7 @@
                 $(".checkboxes").uniform();
                 $(".group-checkable").uniform();
             },
-            "sAjaxSource": "../ServletAction?Action=getDeviceRecord"
+            "sAjaxSource": "../Device_ServletAction?Action=getDeviceRecord"
         });
         $('.datatable').find('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");
@@ -133,6 +133,12 @@
         $('.datatable').on('change', 'tbody tr .checkboxes', function () {
             $(this).parents('tr').toggleClass("active");
         });
-    };
+    }
+
+    function back(){
+        window.location.href="../main.html";
+        window.parent.frames['rightFrame'].location="deviceDatatable.html?_="+Math.random();
+        alert("11111111111")
+    }
 </script>
 </html>
