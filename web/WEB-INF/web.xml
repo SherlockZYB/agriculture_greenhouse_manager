@@ -25,4 +25,26 @@
         <url-pattern>/salaryModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  salaryModule end =================           -->
+
+        <!-- ================  maturecropModule begin =================           -->
+    <servlet>
+        <servlet-name>maturecropModule_file_servlet_action</servlet-name>
+        <servlet-class>maturecropModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>maturecropModule_file_servlet_action</servlet-name>
+        <url-pattern>/maturecropModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  maturecropModule end =================           -->
+
+    <!-- ================  greenhouseModule begin =================           -->
+    <servlet>
+        <servlet-name>greenhouseModule_file_servlet_action</servlet-name>
+        <servlet-class>greenhouseModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>greenhouseModule_file_servlet_action</servlet-name>
+        <url-pattern>/greenhouseModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  greenhouseModule end =================           -->
 </web-app>
