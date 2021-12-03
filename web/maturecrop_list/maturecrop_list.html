@@ -4,26 +4,13 @@
     <meta charset="UTF-8">
     <title>产出模块</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/dataTables.bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
 
     <style>
         .AddSure{
             width:96px; height:35px; line-height:35px; color:#fff; background:url(../images/btnbg1.png) repeat-x; font-size:14px; font-weight:bold;border-radius: 3px; cursor:pointer;
-        }
-        .SortTip {
-            width: 485px;
-            height: 300px;
-            position: absolute;
-            top: 10%;
-            left: 30%;
-            background: #fcfdfd;
-            box-shadow: 1px 8px 10px 1px #9b9b9b;
-            border-radius: 1px;
-            behavior: url(../js/pie.htc);
-            display: none;
-            z-index: 111111;
         }
     </style>
 </head>
@@ -42,14 +29,14 @@
 <div class="rightinfo" style="width: 88%">
     <div class="tools">
         <ul class="toolbar">
-            <li onclick="AddMatureCropShow()"><img src="../images/t01.png" />添加</li>
-            <li onclick="DeleteAndModifyMatureCrop()"><img src="../images/t03.png" />删除</li>
-            <li onclick="Query()"><img src="../images/search.png" />查询</li>
-            <li onclick="DeleteAndModifyMatureCrop()"><img src="../images/t02.png" />修改</li>
-            <li onclick="ExportMatureCrop()"><img src="../images/export.png" />导出</li>
-            <li onclick="PrintGreenhouseTable()"><img src="../images/print.png" />打印</li>
-            <li onclick="SortShow()"><img src="../images/sort.png" />排序</li>
-            <li onclick="StatisticsShow()"><img src="../images/t04.png" />统计</li>
+            <li onclick="AddMatureCropShow()"><img src="images/t01.png" />添加</li>
+            <li onclick="DeleteAndModifyMatureCrop()"><img src="images/t03.png" />删除</li>
+            <li onclick="Query()"><img src="images/search.png" />查询</li>
+            <li onclick="DeleteAndModifyMatureCrop()"><img src="images/t02.png" />修改</li>
+            <li onclick="ExportMatureCrop()"><img src="images/export.png" />导出</li>
+            <li onclick="PrintGreenhouseTable()"><img src="images/print.png" />打印</li>
+            <li onclick="SortShow()"><img src="images/sort.png" />排序</li>
+            <li onclick="StatisticsShow()"><img src="images/t04.png" />统计</li>
         </ul>
     </div>
     <!--工具栏-->
@@ -196,7 +183,7 @@
     <div class="tip" id="Query">
         <div class="tiptop"><span>查询提示</span><a></a></div>
         <div class="tipinfo">
-            <span><img src="../images/tip.png" /></span>
+            <span><img src="images/tip.png" /></span>
             <div class="tipright">
                 <p id="">在表格右上方中的查询栏输入任意字段进行查询</p>
             </div>
@@ -213,7 +200,7 @@
     <div class="tip" id="export_file_tip">
         <div class="tiptop"><span>导出提示</span><a></a></div>
         <div class="tipinfo">
-            <span><img src="../images/tip.png" /></span>
+            <span><img src="images/tip.png" /></span>
             <div class="tipright">
                 <p id="flag"></p>
                 <cite><a href="" id="txtDownLoadHref">[点击下载txt]</a></cite>
@@ -232,7 +219,7 @@
     <div class="tip" id="Sort_tip">
         <div class="tiptop"><span>排序提示</span><a></a></div>
         <div class="tipinfo">
-            <span><img src="../images/tip.png" /></span>
+            <span><img src="images/tip.png" /></span>
             <div class="tipright">
                 <p> 请直接点击表中的属性名进行排序</p>
             </div>
@@ -258,9 +245,9 @@
 <!-- END BODY -->
 </html>
 
-<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="../js/jquery.uniform.min.js"></script>
-<script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 
 <script>
     //添加--------------------------------------------------------------------------------------------------------------
