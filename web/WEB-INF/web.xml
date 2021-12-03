@@ -46,17 +46,6 @@
     </servlet-mapping>
     <!-- ================  salaryModule end =================           -->
 
-        <!-- ================  maturecropModule begin =================           -->
-    <servlet>
-        <servlet-name>maturecropModule_file_servlet_action</servlet-name>
-        <servlet-class>maturecropModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>maturecropModule_file_servlet_action</servlet-name>
-        <url-pattern>/maturecropModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  maturecropModule end =================           -->
-
     <!-- ================  greenhouseModule begin =================           -->
     <servlet>
         <servlet-name>greenhouseModule_file_servlet_action</servlet-name>
@@ -67,4 +56,27 @@
         <url-pattern>/greenhouseModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  greenhouseModule end =================           -->
+
+ <!-- ================  maturecropModule begin =================           -->
+    <servlet>
+        <servlet-name>maturecropModule_file_servlet_action</servlet-name>
+        <servlet-class>maturecropModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>maturecropModule_file_servlet_action</servlet-name>
+        <url-pattern>/maturecropModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  maturecropModule end =================           -->
+
+ <!-- ================  fertilizerModule begin =================           -->
+    <servlet>
+        <servlet-name>fertilizerModule_file_servlet_action</servlet-name>
+        <servlet-class>fertilizerModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fertilizerModule_file_servlet_action</servlet-name>
+        <url-pattern>/fertilizerModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  fertilizerModule end =================           -->
+
 </web-app>
