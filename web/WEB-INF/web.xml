@@ -14,7 +14,16 @@
         <servlet-name>Login_ServletAction</servlet-name>
         <url-pattern>/Login_ServletAction</url-pattern>
     </servlet-mapping>
-    
+
+    <servlet>
+        <servlet-name>Device_ServletAction</servlet-name>
+        <servlet-class>device.Servlet.ServletAction</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Device_ServletAction</servlet-name>
+        <url-pattern>/Device_ServletAction</url-pattern>
+    </servlet-mapping>
     <!-- ================  salaryModule begin =================           -->
     <servlet>
         <servlet-name>salaryModule_file_servlet_action</servlet-name>
@@ -23,6 +32,17 @@
     <servlet-mapping>
         <servlet-name>salaryModule_file_servlet_action</servlet-name>
         <url-pattern>/salaryModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  salaryModule end =================           -->
+
+    <!-- ================  warningModule begin =================           -->
+    <servlet>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <servlet-class>warningModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <url-pattern>/warningModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  salaryModule end =================           -->
 
