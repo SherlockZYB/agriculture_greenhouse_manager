@@ -89,5 +89,15 @@
         <url-pattern>/checkModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  checkModule end =================           -->
+        <!-- ================  cropModule begin =================           -->
+    <servlet>
+        <servlet-name>cropModule_file_servlet_action</servlet-name>
+        <servlet-class>cropModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cropModule_file_servlet_action</servlet-name>
+        <url-pattern>/cropModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  cropModule end =================           -->
 
 </web-app>

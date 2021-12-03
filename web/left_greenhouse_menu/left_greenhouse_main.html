@@ -43,6 +43,10 @@ function getMatureCropRecordTable(){
 function getFertilizerRecordTable(){
     window.parent.frames['rightFrame'].location="../fertilizer_list/fertilizer_list.html?value="+Child_id;
 }
+//将大棚id传入作物页面
+function getCropRecordTable(){
+    window.parent.frames['rightFrame'].location="../crop_list/crop_list.html?value="+Child_id;
+}
 </script>
 
 
@@ -56,7 +60,7 @@ function getFertilizerRecordTable(){
     <div class="title">
     <span><img src="../images/leftico02.png" /></span>作物管理</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">查看作物</a><i></i></li>
+        <li><cite></cite><a onclick="getCropRecordTable()">查看作物</a><i></i></li>
         </ul>
     </dd> 
     
