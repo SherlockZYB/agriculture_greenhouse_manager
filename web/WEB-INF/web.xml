@@ -79,4 +79,15 @@
     </servlet-mapping>
     <!-- ================  fertilizerModule end =================           -->
 
+        <!-- ================  checkModule begin =================           -->
+    <servlet>
+        <servlet-name>checkModule_file_servlet_action</servlet-name>
+        <servlet-class>checkModule.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkModule_file_servlet_action</servlet-name>
+        <url-pattern>/checkModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  checkModule end =================           -->
+
 </web-app>
