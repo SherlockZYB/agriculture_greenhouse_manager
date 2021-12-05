@@ -43,7 +43,7 @@ public class sqlOperator {
         return jsonObject;
     }
 
-    //该函数用于添加大棚数据------------------------------------------------------------------------------------------------
+    //该函数用于添加数据------------------------------------------------------------------------------------------------
     public void AddMatureCropRecord(HashMap map) throws SQLException {
         // 指定属性插入
         String date=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
@@ -67,9 +67,9 @@ public class sqlOperator {
 
     }
 
-    // 该函数用于普适性的获取记录信息，主要用于导出，查询，等情况------------------------------------------------------------------
-    public JSONObject getRecord(String name) throws SQLException, JSONException {
-        String sql="select * from "+name;
+    // 该函数用于普适性的获取记录信息，主要用于导出等情况-------------------------------------------------------------------------
+    public JSONObject getRecord(String value) throws SQLException, JSONException {
+        String sql="select * from  maturecrop_file where greenhouse_id="+value;
         System.out.println("[sqlOperator/getRecord()]将要执行SQL："+sql);
         ResultSet resultSet=this.statement.executeQuery(sql);
         // 获取查询到数据的列信息

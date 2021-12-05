@@ -34,7 +34,7 @@
             <li onclick="Query()"><img src="images/search.png" />查询</li>
             <li onclick="DeleteAndModifyMatureCrop()"><img src="images/t02.png" />修改</li>
             <li onclick="ExportMatureCrop()"><img src="images/export.png" />导出</li>
-            <li onclick="PrintGreenhouseTable()"><img src="images/print.png" />打印</li>
+            <li onclick="PrintMatureCropTable()"><img src="images/print.png" />打印</li>
             <li onclick="SortShow()"><img src="images/sort.png" />排序</li>
             <li onclick="StatisticsShow()"><img src="images/t04.png" />统计</li>
         </ul>
@@ -367,8 +367,8 @@
         let message = {};
         let url = "../maturecropModule_file_servlet_action";
         message.Action = "exportFile";
-        // 表名
-        message.tableName='maturecrop_file';
+        // 传入大棚ID
+        message.value=Child_id;
         $.post(url, message, function (json) {
             if (json.ok === 200) {
                 // 显示tip
@@ -383,7 +383,7 @@
         });
     }
     //打印--------------------------------------------------------------------------------------------------------------
-    function PrintGreenhouseTable(){
+    function PrintMatureCropTable(){
         alert("即将前往Print");
         window.parent.location.href="printmaturecroptable.html?value="+Child_id;
     }

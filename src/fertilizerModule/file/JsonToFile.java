@@ -17,8 +17,8 @@ import java.util.HashMap;
  */
 public class JsonToFile {
     // 定义导出的路径信息
-    final String txtPath="C:\\Users\\86152\\Desktop\\greenhouse\\export.txt";
-    final String excelPath="C:\\Users\\86152\\Desktop\\greenhouse\\export.xls";
+    final String txtPath="C:\\Users\\86152\\Desktop\\greenhouse\\fertilizer_list.txt";
+    final String excelPath="C:\\Users\\86152\\Desktop\\greenhouse\\fertilizer_list.xls";
 
 
     // 将JSON导出成TXT文件
@@ -41,7 +41,7 @@ public class JsonToFile {
         System.out.println("[sqlOperator/setJsonTOTxt]set JSON to Txt, success");
         // 使用JSON格式反馈下载路径
         JSONObject json=new JSONObject();
-        json.put("txtDownloadPath","/greenhouse/export.txt");
+        json.put("txtDownloadPath","/greenhouse/fertilizer_list.txt");
         return json;
     }
 
@@ -78,7 +78,7 @@ public class JsonToFile {
         workbook.write(outputStream);
         outputStream.flush();
         outputStream.close();
-        jsonObject.put("excelDownloadPath","/greenhouse/export.xls");
+        jsonObject.put("excelDownloadPath","/greenhouse/fertilizer_list.xls");
         jsonObject.put("ok",200);
         System.out.println("set JSON to excel, success");
     }

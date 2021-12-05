@@ -138,12 +138,12 @@ public class ServletAction extends HttpServlet {
                 // 该json用于保存导出的数据
                 JSONObject json=new JSONObject();
                 System.out.println("正在导出");
-                // 获取需要操作的表名
-                String name=req.getParameter("tableName");
-                System.out.println("将要操作的表:"+name);
+                // 传入大棚ID
+                String value=req.getParameter("value");
+                System.out.println("传入大棚ID:"+value);
                 try {
                     // 获取到查询结果的json
-                    json=sqlOp.getRecord(name);
+                    json=sqlOp.getRecord(value);
 
                     // JSON导出文件的工具类对象
                     JsonToFile jsonToFile=new JsonToFile();

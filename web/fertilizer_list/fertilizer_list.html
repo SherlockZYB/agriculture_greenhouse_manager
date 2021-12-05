@@ -392,8 +392,8 @@
         let message = {};
         let url = "../fertilizerModule_file_servlet_action";
         message.Action = "exportFile";
-        // 表名
-        message.tableName='fertilizer_file';
+        // 传入大棚ID
+        message.value=Child_id;
         $.post(url, message, function (json) {
             if (json.ok === 200) {
                 // 显示tip
