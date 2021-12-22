@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/web/left_main.html" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/login/checkDataTable.html" value="file://$PROJECT_DIR$/web/login" />
+        <entry key="file://$PROJECT_DIR$/web/login/forgot/upgradeMail.html" value="file://$PROJECT_DIR$/web/login/forgot" />
+        <entry key="file://$PROJECT_DIR$/web/login/forgot/upgradePassword.html" value="file://$PROJECT_DIR$/web/login/forgot" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,14 +1,19 @@
 package login.export;
 
+import com.spire.xls.FileFormat;
+import com.spire.xls.Workbook;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,14 +22,20 @@ public class JsonToFile {
     // 定义导出的路径信息
     final String txtPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\";
     final String excelPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\";
+    final String pdfPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\";
+    final String csvPath="C:\\Users\\ecw\\Desktop\\JsonToFile\\";
 
     String txtTemp="export";
     String excelTemp="export";
+    String pdfTemp="export";
+    String csvTemp="export";
 
     public JsonToFile(String tag){
         this.txtTemp+=tag+new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".txt";
         this.excelTemp+=tag+new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".xls";
-        System.out.println(this.txtTemp+".."+this.excelTemp);
+        this.pdfTemp+=tag+new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".pdf";
+        this.csvTemp+=tag+new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date())+".csv";
+        System.out.println("设置temp成功!");
     }
 
 
@@ -81,6 +92,12 @@ public class JsonToFile {
                 j++;
             }
         }
+        // 设置自适应宽度
+        for(int i=0;i<jsonTitle.length()+1;i++){
+            sheet.autoSizeColumn(i);
+        }
+        autoSizeCh(sheet,jsonTitle.length());
+        // 完成自适应宽度
         FileOutputStream outputStream=new FileOutputStream(this.excelPath+this.excelTemp);
         workbook.write(outputStream);
         outputStream.flush();
@@ -90,10 +107,50 @@ public class JsonToFile {
         System.out.println("set JSON to excel, success");
     }
 
-    // 将Json导出成一般的File
-    public void setJsonToSimpleFile(JSONObject jsonObject){
+    public void setExcelToPdfCsv(JSONObject jsonObject) throws JSONException {
+        Workbook workbook=new Workbook();
+        // 获取excel的路径
+        workbook.loadFromFile(this.excelPath+this.excelTemp);
+        // 转为pdf，存在问题，单元格中内容不能完整显示
+        workbook.saveToFile(this.pdfPath+this.pdfTemp, FileFormat.PDF);
+        jsonObject.put("pdfDownloadPath","/upLoad/"+this.pdfTemp);
+        System.out.println("set excel to pdf, success");
+        // 转为csv,正确
+        workbook.saveToFile(this.csvPath+this.csvTemp,FileFormat.CSV);
+        jsonObject.put("csvDownloadPath","/upLoad/"+this.csvTemp);
+        System.out.println("set excel to csv, success");
+    }
 
-        System.out.println("set JSON to simple File, success");
+
+    // 处理中文excel表格中的宽度自适应问题 col表示列数
+    private void autoSizeCh(Sheet sheet,int col) {
+        for (int columnNum = 0; columnNum < col+1; columnNum++) {
+
+            int columnWidth = sheet.getColumnWidth(columnNum) / 256;
+            System.out.println("第"+columnNum+"列初始宽度:"+columnWidth);
+            for (int rowNum = 0; rowNum < sheet.getLastRowNum()+1; rowNum++) {
+
+                HSSFRow currentRow;
+                //当前行未被使用过
+                if (sheet.getRow(rowNum) == null) {
+                    currentRow = (HSSFRow) sheet.createRow(rowNum);
+                } else {
+                    currentRow = (HSSFRow) sheet.getRow(rowNum);
+                }
+
+                if (currentRow.getCell(columnNum) != null) {
+                    HSSFCell currentCell = currentRow.getCell(columnNum);
+                    if (currentCell.getCellType() == Cell.CELL_TYPE_STRING ) {
+                        int length = currentCell.getStringCellValue().getBytes(StandardCharsets.UTF_8).length;
+                        if (columnWidth < length) {
+                            columnWidth = length;
+                        }
+                    }
+                }
+            }
+            sheet.setColumnWidth(columnNum, columnWidth * 256);
+            System.out.println("第"+columnNum+"列最终宽度:"+sheet.getColumnWidth(columnNum)/256);
+        }
     }
 
 }

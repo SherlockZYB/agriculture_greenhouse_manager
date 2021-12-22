@@ -19,7 +19,7 @@ public class sendCode {
     }
 
 
-    public boolean Send() throws EmailException {
+    public boolean Send(String way) throws EmailException {
         try{
             Email email = new SimpleEmail();
 
@@ -31,7 +31,7 @@ public class sendCode {
             // 发送内容
             email.setCharset("UTF-8");
             email.setSubject("农业大棚信息管理系统");
-            email.setMsg("你好，您申请注册的验证码是："+code+"，时效60s，请勿将该验证码发送给他人，保护信息安全。"+"\n@农业大棚信息管理系统");
+            email.setMsg("你好，您的"+way+"验证码是："+code+"，时效60s，请勿将该验证码发送给他人，保护信息安全。"+"\n@农业大棚信息管理系统");
             // 接收方邮箱
             email.addTo(this.destAddress);
             email.send();
@@ -43,7 +43,7 @@ public class sendCode {
         }
     }
 
-    public void sendApplyResult(String result){
+    public void sendApplyResult(String result,String account,String date){
         try{
             Email email = new SimpleEmail();
 
@@ -55,7 +55,7 @@ public class sendCode {
             // 发送内容
             email.setCharset("UTF-8");
             email.setSubject("农业大棚信息管理系统");
-            email.setMsg("你好，您申请注册农业大棚，已经管理员审核："+result+"感谢您的支持!!!"+"\n@农业大棚信息管理系统");
+            email.setMsg("申请注册用户: "+account+" ,你好，您于 "+date+" 进行的注册农业大棚申请，已被管理员审核："+result+".感谢您的支持!!!"+"\n@农业大棚信息管理系统");
             // 接收方邮箱
             email.addTo(this.destAddress);
             email.send();

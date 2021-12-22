@@ -8,13 +8,7 @@
 <script language="JavaScript" src="login/UserManagerControl.js"  type=""></script>
 <script type="text/javascript" src="warning_module/warningController.js"></script>
 <script type="text/javascript">
-$(function(){	
-	//导航切换
-	$(".menuson li").click(function(){
-		$(".menuson li.active").removeClass("active")
-		$(this).addClass("active");
-	});
-	
+$(function(){
 	$('.title').click(function(){
 		var $ul = $(this).next('ul');
 		$('dd').find('ul').slideUp();
@@ -36,12 +30,31 @@ function init(){
     }
     // js动态处理Menu
     UserMenuControl(level);
+    window.parent.frames['rightFrame'].location="login/personalInfo/viewPersonInfo.html?_="+Math.random();
 }
 
 // 查看设备信息
 function getDeviceInfo(){
     window.parent.frames['rightFrame'].location="DeviceManage/deviceDatatable.html?_="+Math.random();
 }
+
+function  FeedBack(){
+    window.parent.frames['rightFrame'].location="DeviceManage/Feedback/feedback.html?_="+Math.random();
+}
+
+function getFeedbackInfo(){
+    window.parent.frames['rightFrame'].location="DeviceManage/Feedback/feedbackDatatable.html?_="+Math.random();
+}
+
+function dealFeedback(){
+    window.parent.frames['rightFrame'].location="DeviceManage/Feedback/dealFeedback.html?_="+Math.random();
+}
+
+function getWeather(){
+    window.parent.frames['rightFrame'].location="DeviceManage/tianqi/newTianqi.html?_="+Math.random();
+}
+
+
 </script>
 
 
@@ -55,32 +68,29 @@ function getDeviceInfo(){
     <div class="title">
     <span><img src="images/leftico02.png" /></span>用户管理
     </div>
-    <ul class="menuson" id="ManagerUser">
-        <li><cite></cite><a>查看个人信息</a><i></i></li>
-        <li><cite></cite><a>完善个人信息</a><i></i></li>
+    <ul class="menuson" id="ManagerUserMenu">
+        <li><cite></cite><a onclick="viewPersonInfo()">查看个人信息</a><i></i></li>
+        <li><cite></cite><a onclick="modifyPersonInfo()">完善个人信息</a><i></i></li>
     </ul>
     </dd> 
     
     
     <dd><div class="title"><span><img src="images/leftico03.png" /></span>权限管理</div>
-    <ul class="menuson">
-        <li><cite></cite><a href="#">查看用户权限</a><i></i></li>
-        <!--        查看用户信息内包含内容：用户权限信息表（导出、排序、统计）-->
-        <li><cite></cite><a href="#">修改用户权限</a><i></i></li>
+    <ul class="menuson" id="permissionMenu">
+        <li><cite></cite><a onclick="applyPermission()">申请修改权限</a><i></i></li>
     </ul>    
     </dd>  
 
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>大棚管理</div>
         <ul class="menuson">
+
             <li><cite></cite><a href="greenhouse/greenhouse_list.html" target="rightFrame">查看大棚</a><i></i></li>
             <!--        查看用户信息内包含内容：大棚信息表（导出、排序、统计）-->
-            <li><cite></cite><a href="#">增加大棚</a><i></i></li>
-            <li><cite></cite><a href="#">修改大棚</a><i></i></li>
         </ul>
     </dd>
 
-    <dd><div class="title"><span><img src="images/leftico04.png" /></span>员工管理</div>
+    <dd id="workerMenu"><div class="title"><span><img src="images/leftico04.png" /></span>员工管理</div>
         <ul class="menuson">
             <li><cite></cite><a href="salary/salary_table.html" target="rightFrame">员工工资管理</a><i></i></li>
             <li><cite></cite><a href="check/check_table.html" target="rightFrame">员工考勤管理</a><i></i></li>
@@ -88,11 +98,10 @@ function getDeviceInfo(){
     </dd>
 
 
-    <dd onclick="getWarningTable()"><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
+    <dd id="cautionMenu" onclick="getWarningTable()"><div class="title"><span><img src="images/leftico04.png" /></span>预警管理</div>
 
-    </dd>
 
-    <dd><div class="title"><span><img src="images/leftico04.png" /></span>设备管理</div>
+    <dd id="deviceMenu"><div class="title"><span><img src="images/leftico04.png" /></span>设备管理</div>
         <ul class="menuson">
             <li><cite></cite><a onclick="getDeviceInfo()">查看设备信息</a><i></i></li>
             <!--        查看设备信息内包含内容：设备信息表（导出、排序、统计）-->
@@ -104,18 +113,17 @@ function getDeviceInfo(){
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>历史天气</div>
         <ul class="menuson">
-            <li><cite></cite><a href="#">查看历史天气</a><i></i></li>
+            <li><cite></cite><a onclick="getWeather()">查看历史天气</a><i></i></li>
             <!--        查看历史天气信息内包含内容：历史天气信息表（导出、排序、统计）-->
-            <li><cite></cite><a href="#">删除历史天气</a><i></i></li>
         </ul>
     </dd>
 
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>反馈</div>
-        <ul class="menuson">
-            <li><cite></cite><a href="#">提交反馈</a><i></i></li>
-            <li><cite></cite><a href="#">查看反馈信息</a><i></i></li>
+        <ul class="menuson" id="feedBackMenu">
+            <li><cite></cite><a onclick="FeedBack()">提交反馈</a><i></i></li>
+            <li><cite></cite><a onclick="getFeedbackInfo()">查看反馈信息</a><i></i></li>
             <!--        查看用户信息内包含内容：反馈信息表（导出、排序、统计）-->
-            <li><cite></cite><a href="#">删除反馈信息</a><i></i></li>
+<!--            <li><cite></cite><a onclick="dealFeedback()">处理反馈信息</a><i></i></li>-->
         </ul>
     </dd>
     </dl>
