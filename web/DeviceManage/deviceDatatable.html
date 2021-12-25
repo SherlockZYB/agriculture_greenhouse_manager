@@ -87,6 +87,10 @@
                 <cite><a href="" id="txtDownLoadHref">[点击下载txt]</a></cite>
                 <cite><a href="" id="excelDownLoadHref">[点击下载excel]</a></cite>
             </div>
+            <div class="tipright">
+                <cite><a href="" id="pdfDownLoadHref">[点击下载pdf]</a></cite>
+                <cite><a href="" id="csvDownLoadHref">[点击下载csv]</a></cite>
+            </div>
         </div>
     </div>
 
@@ -123,8 +127,8 @@
 
         <div style="position:relative; width: 80%; height: 12%; left: 10%; right: 10%; top: 8%; transform: translate(-10%,0)">
             <label style="position: relative; width: 20%; float: left">设备所属大棚</label>
-            <select id="deviceLocation">
-            </select>
+           <select id="deviceLocation">
+           </select>
         </div>
 
         <div style="position:relative; width: 80%; height: 12%; left: 10%; right: 10%; top: 8%; transform: translate(-10%,0)">
@@ -200,25 +204,36 @@
 <script type="text/javascript" src="DataTable/js/jquery.dataTables.min.js"></script>
 
 <script>
-
     function AddShow(){
-        let greenhouse=[];
         let addTip=document.getElementById("add_tip");
-        for(let i=0;i<result.length;i++){
-            if (!greenhouse.includes(result[i].deviceLocation)){
-                greenhouse.push(result[i].deviceLocation);
+        let url="../Device_ServletAction";
+        let message={};
+        message.Action="getGreenHouse";
+        message.account=sessionStorage.getItem("account");
+        message.userLevel=sessionStorage.getItem("level");
+        $.post(url,message,function (json){
+            if(json.ok==200){
+                console.log(json)
+                let option="";
+                for(let i=0; i<json.greenhouse.length;i++){
+                    option+="<option>"+json.greenhouse[i]+"</option>";
+                }
+                if(option==""){
+                    alert("尚未创建大棚，无法添加设备!");
+                    return;
+                }
+                document.getElementById("deviceLocation").innerHTML=option;
+            }else{
+                alert("获取大棚信息失败，请稍后重试!")
             }
-        }
-        console.log(greenhouse)
-        let option="";
-        for(let i=0; i<greenhouse.length;i++){
-            option+="<option>"+greenhouse[i]+"</option>";
-        }
-        document.getElementById("deviceLocation").innerHTML=option;
+        })
         addTip.style.display="block";
 
     }
-    function  AddDevice(){
+
+    // 添加设备时，所属大棚可以进行动态修改
+    function AddDevice(){
+        alert("add")
         let deviceNum=document.getElementById("deviceNum").value;
         let deviceName=document.getElementById("deviceName").value;
         let deviceCompany=document.getElementById("deviceCompany").value;
@@ -227,8 +242,8 @@
         let deviceStatus=document.getElementById("deviceStatus").value;
         if(deviceNum==="" || deviceName==="" || deviceCompany==="" || devicePrice===""){
             alert("请填写完整信息");
+            return;
         }
-
         let message={};
         message.Action="addDeviceInfo";
         message.deviceNum=deviceNum;
@@ -238,6 +253,7 @@
         message.deviceLocation=deviceLocation;
         message.deviceStatus=deviceStatus;
         let url="../Device_ServletAction";
+        console.log(message);
         $.post(url,message,function(json){
             if(json.ok===200){
                 // 重新加载页面
@@ -256,16 +272,19 @@
         // 建议JAVA后端查询得到的JSON直接导出，而不是前端向后端传递JSON再导出
         let message = {};
         let url = "../Device_ServletAction"
-        message.Action = "exportFile";
-        message.tableName='deviceinfo';
-        message.json = result.toString();
-        console.log(result.toString());
+        message.Action = "exportDeviceRecord";
+        message.account=sessionStorage.getItem("account");
+        message.userLevel=sessionStorage.getItem("level");
+        message.tag=Math.random();
+        console.log(message)
         $.post(url, message, function (json) {
             if (json.ok === 200) {
                 tip.style.display="block";
                 document.getElementById("flag").innerText="导出成功!";
                 $("#txtDownLoadHref").attr("href",json.txtDownloadPath);
                 $("#excelDownLoadHref").attr("href",json.excelDownloadPath);
+                $("#pdfDownLoadHref").attr("href",json.pdfDownloadPath);
+                $("#csvDownLoadHref").attr("href",json.csvDownloadPath);
             } else {
                 alert("导出失败！")
             }
@@ -284,11 +303,11 @@
         });
         init();
     }
-    function Print(){
-        window.open("print.html");
-    }
+     function Print(){
+         window.open("print.html");
+     }
     function Order() {
-        alert("点击表头进行排序")
+                alert("点击表头进行排序")
     }
     function Search() {
         alert("点击过滤进行查询")
@@ -376,7 +395,7 @@
                 $(".checkboxes").uniform();
                 $(".group-checkable").uniform();
             },
-            "sAjaxSource": "../Device_ServletAction?Action=getDeviceRecord"
+            "sAjaxSource": "../Device_ServletAction?Action=getDeviceRecord&account="+sessionStorage.getItem("account")+"&userLevel="+sessionStorage.getItem("level")
         });
         $('.datatable').find('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");

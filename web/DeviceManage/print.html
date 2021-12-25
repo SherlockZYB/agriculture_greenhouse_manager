@@ -114,7 +114,7 @@
                 $(".checkboxes").uniform();
                 $(".group-checkable").uniform();
             },
-            "sAjaxSource": "../Device_ServletAction?Action=getDeviceRecord"
+            "sAjaxSource": "../Device_ServletAction?Action=getDeviceRecord&account="+sessionStorage.getItem("account")+"&userLevel="+sessionStorage.getItem("level")
         });
         $('.datatable').find('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");

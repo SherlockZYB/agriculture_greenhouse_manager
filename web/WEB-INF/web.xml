@@ -15,10 +15,8 @@
         <url-pattern>/Login_ServletAction</url-pattern>
     </servlet-mapping>
 
-<<<<<<< Updated upstream
-=======
     <!--此处设备管理\天气管理\反馈模块 servlet-->
->>>>>>> Stashed changes
+
     <servlet>
         <servlet-name>Device_ServletAction</servlet-name>
         <servlet-class>device.Servlet.ServletAction</servlet-class>

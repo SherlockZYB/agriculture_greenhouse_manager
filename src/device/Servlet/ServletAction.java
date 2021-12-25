@@ -1,5 +1,6 @@
 package device.Servlet;
 
+import com.sun.imageio.plugins.wbmp.WBMPImageReader;
 import device.DbOperator.sendCode;
 import device.DbOperator.sqlOperator;
 import device.export.JsonToFile;
@@ -39,8 +40,8 @@ public class ServletAction extends HttpServlet {
         JSONObject jsonObject=new JSONObject();
         String action=req.getParameter("Action");
         sqlOperator sqlOp=new sqlOperator();
+        System.out.println(action);
         switch (action){
-
             // 获取用户信息，用于构成DataTable
             case "getUserRecord":{
                 String sort=req.getParameter("sort");
@@ -87,11 +88,12 @@ public class ServletAction extends HttpServlet {
                     json=sqlOp.getRecord(name);
 
                     // JSON导出文件的工具类对象
-                    JsonToFile jsonToFile=new JsonToFile();
+                    JsonToFile jsonToFile=new JsonToFile(req.getParameter("tag"));
                     jsonObject=jsonToFile.setJsonTOTxt(json);
 
                     // 转excel
                     jsonToFile.setJsonToExcel(json,jsonObject);
+                    jsonToFile.setExcelToPdfCsv(jsonObject);
                     System.out.println(jsonObject);
                 } catch (SQLException | JSONException e) {
                     e.printStackTrace();
@@ -101,9 +103,31 @@ public class ServletAction extends HttpServlet {
 
             // 获取设备信息
             case "getDeviceRecord":{
+                String userLevel=req.getParameter("userLevel");
+                String account=req.getParameter("account");
                 try {
-                    jsonObject=sqlOp.getDeviceRecord();
+                    jsonObject=sqlOp.getDeviceRecord(userLevel,account);
                 } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            // 导出设备信息
+            case "exportDeviceRecord":{
+                JSONObject json=new JSONObject();
+                String userLevel=req.getParameter("userLevel");
+                String account=req.getParameter("account");
+                try {
+                    json=sqlOp.exportDeviceRecord(account,userLevel);
+                    // 导出txt
+                    JsonToFile jsonToFile=new JsonToFile(req.getParameter("tag"));
+                    jsonObject=jsonToFile.setJsonTOTxt(json);
+                    // 转excel
+                    jsonToFile.setJsonToExcel(json,jsonObject);
+                    jsonToFile.setExcelToPdfCsv(jsonObject);
+                    System.out.println(jsonObject);
+                } catch (SQLException | JSONException e) {
                     e.printStackTrace();
                 }
                 break;
@@ -164,6 +188,188 @@ public class ServletAction extends HttpServlet {
                     e.printStackTrace();
                 }
 
+                break;
+            }
+
+            // 获取设备信息
+            case "getFeedbackRecord":{
+                try {
+                    String account=req.getParameter("account");
+                    String tag=req.getParameter("tag");
+                    System.out.println(account+","+tag);
+                    jsonObject=sqlOp.getFeedbackRecord(account,tag);
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "Submit":{
+                HashMap map=new HashMap();
+                map.put("feedBackContent",req.getParameter("feedBackContent"));
+                map.put("type",req.getParameter("type"));
+                map.put("feedbackId",req.getParameter("feedbackId"));
+                map.put("feedbackAccount",req.getParameter("feedbackAccount"));
+                try {
+                    sqlOp.Submit(map);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "StatisticsFeedbackInfo":{
+                try {
+                    jsonObject=sqlOp.StatisticsFeedbackInfo();
+                    jsonObject.put("ok",200);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                break;
+            }
+
+            // 个人修改自己的反馈
+            case "modifyFeedBack":{
+                String feedbackAccount=req.getParameter("feedbackAccount");
+                String content=req.getParameter("feedBackContent");
+                String type=req.getParameter("type");
+                String id=req.getParameter("id");
+                try {
+                    sqlOp.modifyFeedBack(feedbackAccount,content,type,id);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "dealFeedBack":{
+                String id=req.getParameter("id");
+                HashMap map=new HashMap();
+                map.put("dealResult",req.getParameter("dealResult"));
+                map.put("dealManageId",req.getParameter("dealManageId"));
+                map.put("dealManageAccount",req.getParameter("dealManageAccount"));
+                try {
+                    sqlOp.dealFeedBack(id, map);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "saveWeather":{
+                try {
+                    HashMap map=new HashMap();
+                    map.put("city", req.getParameter("city"));
+                    map.put("day", req.getParameter("day"));
+                    map.put("week",req.getParameter("week"));
+                    map.put("wea",req.getParameter("wea"));
+                    map.put("hightem",req.getParameter("hightem"));
+                    map.put("lowtem",req.getParameter("lowtem"));
+                    map.put("airLevel",req.getParameter("airLevel"));
+                    map.put("winSpeed",req.getParameter("winSpeed"));
+                    map.put("humidity",req.getParameter("humidity"));
+                    System.out.println(map);
+                    sqlOp.saveWeather(map);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "getWeatherRecord":{
+                try {
+                    jsonObject=sqlOp.getWeatherRecord();
+                } catch (JSONException | SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "AddSubmit":{
+                String id=req.getParameter("id");
+                HashMap map=new HashMap();
+                map.put("todoList",req.getParameter("todoList"));
+                try {
+                    sqlOp.AddSubmit(id,map);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "deleteTodoList":{
+                String id=req.getParameter("id");
+                HashMap map=new HashMap();
+                map.put("todoList",req.getParameter("todoList"));
+                try {
+                    sqlOp.DeleteTodoList(id,map);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "SubmitModify":{
+                String id=req.getParameter("id");
+                HashMap map=new HashMap();
+                map.put("todoList",req.getParameter("todoList"));
+                try {
+                    sqlOp.SubmitModify(id,map);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "StatisticsWeatherInfo":{
+                String city=req.getParameter("city");
+                try{
+                    jsonObject= sqlOp.StatisticsWeatherInfo(city);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException throwables) {
+                    throwables.printStackTrace();
+                }
+                break;
+            }
+
+            case "getGreenHouse":{
+                String account=req.getParameter("account");
+                String userLevel=req.getParameter("userLevel");
+                try {
+                    jsonObject=sqlOp.getGreenHouse(account,userLevel);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "exportOwnFeedBackRecord":{
+                JSONObject json=new JSONObject();
+                String account=req.getParameter("account");
+                try {
+                    json=sqlOp.getOwnFeedBackRecord(account);
+                    // 导出txt
+                    JsonToFile jsonToFile=new JsonToFile(req.getParameter("tag"));
+                    jsonObject=jsonToFile.setJsonTOTxt(json);
+                    // 转excel
+                    jsonToFile.setJsonToExcel(json,jsonObject);
+                    jsonToFile.setExcelToPdfCsv(jsonObject);
+                    System.out.println(jsonObject);
+
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
 
