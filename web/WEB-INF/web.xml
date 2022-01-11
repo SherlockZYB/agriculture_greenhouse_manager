@@ -26,7 +26,7 @@
         <servlet-name>Device_ServletAction</servlet-name>
         <url-pattern>/Device_ServletAction</url-pattern>
     </servlet-mapping>
-<<<<<<< Updated upstream
+
     <!-- ================  salaryModule begin =================           -->
     <servlet>
         <servlet-name>salaryModule_file_servlet_action</servlet-name>
@@ -48,8 +48,7 @@
         <url-pattern>/warningModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  salaryModule end =================           -->
-=======
->>>>>>> Stashed changes
+
 
     <!-- ================  greenhouseModule begin =================           -->
     <servlet>
@@ -62,11 +61,8 @@
     </servlet-mapping>
     <!-- ================  greenhouseModule end =================           -->
 
-<<<<<<< Updated upstream
  <!-- ================  maturecropModule begin =================           -->
-=======
     <!-- ================  maturecropModule begin =================           -->
->>>>>>> Stashed changes
     <servlet>
         <servlet-name>maturecropModule_file_servlet_action</servlet-name>
         <servlet-class>maturecropModule.file.ServletAction</servlet-class>
@@ -77,11 +73,10 @@
     </servlet-mapping>
     <!-- ================  maturecropModule end =================           -->
 
-<<<<<<< Updated upstream
  <!-- ================  fertilizerModule begin =================           -->
-=======
+
     <!-- ================  fertilizerModule begin =================           -->
->>>>>>> Stashed changes
+
     <servlet>
         <servlet-name>fertilizerModule_file_servlet_action</servlet-name>
         <servlet-class>fertilizerModule.file.ServletAction</servlet-class>
@@ -92,7 +87,7 @@
     </servlet-mapping>
     <!-- ================  fertilizerModule end =================           -->
 
-<<<<<<< Updated upstream
+
         <!-- ================  checkModule begin =================           -->
     <servlet>
         <servlet-name>checkModule_file_servlet_action</servlet-name>
@@ -103,32 +98,10 @@
         <url-pattern>/checkModule_file_servlet_action</url-pattern>
     </servlet-mapping>
     <!-- ================  checkModule end =================           -->
-        <!-- ================  cropModule begin =================           -->
-=======
-    <!-- ================  warningModule begin =================           -->
-    <servlet>
-        <servlet-name>warningModule_file_servlet_action</servlet-name>
-        <servlet-class>warningModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>warningModule_file_servlet_action</servlet-name>
-        <url-pattern>/warningModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  warningModule end =================           -->
 
-    <!-- ================  salaryModule begin =================           -->
-    <servlet>
-        <servlet-name>salaryModule_file_servlet_action</servlet-name>
-        <servlet-class>salaryModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>salaryModule_file_servlet_action</servlet-name>
-        <url-pattern>/salaryModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  salaryModule end =================           -->
 
-    <!-- ================  cropModule begin =================           -->
->>>>>>> Stashed changes
+
+
     <servlet>
         <servlet-name>cropModule_file_servlet_action</servlet-name>
         <servlet-class>cropModule.file.ServletAction</servlet-class>

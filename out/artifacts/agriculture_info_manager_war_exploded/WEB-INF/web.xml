@@ -16,6 +16,7 @@
     </servlet-mapping>
 
     <!--此处设备管理\天气管理\反馈模块 servlet-->
+
     <servlet>
         <servlet-name>Device_ServletAction</servlet-name>
         <servlet-class>device.Servlet.ServletAction</servlet-class>
@@ -25,6 +26,29 @@
         <servlet-name>Device_ServletAction</servlet-name>
         <url-pattern>/Device_ServletAction</url-pattern>
     </servlet-mapping>
+
+    <!-- ================  salaryModule begin =================           -->
+    <servlet>
+        <servlet-name>salaryModule_file_servlet_action</servlet-name>
+        <servlet-class>salaryModule.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>salaryModule_file_servlet_action</servlet-name>
+        <url-pattern>/salaryModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  salaryModule end =================           -->
+
+    <!-- ================  warningModule begin =================           -->
+    <servlet>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <servlet-class>warningModule.file.ServletAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>warningModule_file_servlet_action</servlet-name>
+        <url-pattern>/warningModule_file_servlet_action</url-pattern>
+    </servlet-mapping>
+    <!-- ================  salaryModule end =================           -->
+
 
     <!-- ================  greenhouseModule begin =================           -->
     <servlet>
@@ -37,6 +61,7 @@
     </servlet-mapping>
     <!-- ================  greenhouseModule end =================           -->
 
+ <!-- ================  maturecropModule begin =================           -->
     <!-- ================  maturecropModule begin =================           -->
     <servlet>
         <servlet-name>maturecropModule_file_servlet_action</servlet-name>
@@ -48,7 +73,10 @@
     </servlet-mapping>
     <!-- ================  maturecropModule end =================           -->
 
+ <!-- ================  fertilizerModule begin =================           -->
+
     <!-- ================  fertilizerModule begin =================           -->
+
     <servlet>
         <servlet-name>fertilizerModule_file_servlet_action</servlet-name>
         <servlet-class>fertilizerModule.file.ServletAction</servlet-class>
@@ -59,29 +87,21 @@
     </servlet-mapping>
     <!-- ================  fertilizerModule end =================           -->
 
-    <!-- ================  warningModule begin =================           -->
+
+        <!-- ================  checkModule begin =================           -->
     <servlet>
-        <servlet-name>warningModule_file_servlet_action</servlet-name>
-        <servlet-class>warningModule.file.ServletAction</servlet-class>
+        <servlet-name>checkModule_file_servlet_action</servlet-name>
+        <servlet-class>checkModule.ServletAction</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>warningModule_file_servlet_action</servlet-name>
-        <url-pattern>/warningModule_file_servlet_action</url-pattern>
+        <servlet-name>checkModule_file_servlet_action</servlet-name>
+        <url-pattern>/checkModule_file_servlet_action</url-pattern>
     </servlet-mapping>
-    <!-- ================  warningModule end =================           -->
+    <!-- ================  checkModule end =================           -->
 
-    <!-- ================  salaryModule begin =================           -->
-    <servlet>
-        <servlet-name>salaryModule_file_servlet_action</servlet-name>
-        <servlet-class>salaryModule.file.ServletAction</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>salaryModule_file_servlet_action</servlet-name>
-        <url-pattern>/salaryModule_file_servlet_action</url-pattern>
-    </servlet-mapping>
-    <!-- ================  salaryModule end =================           -->
 
-    <!-- ================  cropModule begin =================           -->
+
+
     <servlet>
         <servlet-name>cropModule_file_servlet_action</servlet-name>
         <servlet-class>cropModule.file.ServletAction</servlet-class>
