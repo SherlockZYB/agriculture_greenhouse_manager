@@ -47,23 +47,16 @@ function initCommonManagerMenu(){
     // 权限管理模块
 
     // 薪资管理模块
-    let salary1=document.createElement("li");
-    salary1.innerHTML="<li><cite></cite><a href=\"#\">增加员工</a><i></i></li>";
-    let salary2=document.createElement("li");
-    salary2.innerHTML="<li><cite></cite><a href=\"#\">删除员工</a><i></i></li>";
-    let salary3=document.createElement("li");
-    salary3.innerHTML="<li><cite></cite><a href=\"#\">修改员工</a><i></i></li>";
-    document.getElementById("salaryMenu").appendChild(salary1);
-    document.getElementById("salaryMenu").appendChild(salary2);
-    document.getElementById("salaryMenu").appendChild(salary3);
+    // let salary1=document.createElement("li");
+    // salary1.innerHTML="<li><cite></cite><a href=\"#\">增加员工</a><i></i></li>";
+    // let salary2=document.createElement("li");
+    // salary2.innerHTML="<li><cite></cite><a href=\"#\">删除员工</a><i></i></li>";
+    // let salary3=document.createElement("li");
+    // salary3.innerHTML="<li><cite></cite><a href=\"#\">修改员工</a><i></i></li>";
+    // document.getElementById("salaryMenu").appendChild(salary1);
+    // document.getElementById("salaryMenu").appendChild(salary2);
+    // document.getElementById("salaryMenu").appendChild(salary3);
 
-    //
-
-    // 预警模块
-    // let warning=document.createElement("li");
-    // warning.innerHTML="<li><cite></cite><a href=\"#\">处理预警信息</a><i></i></li>";
-    // document.getElementById("warningMenu").appendChild(warning);
-    // 预警模块
 
 }
 // 初始化管理员用户菜单

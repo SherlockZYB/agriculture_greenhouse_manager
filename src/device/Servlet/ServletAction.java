@@ -373,6 +373,39 @@ public class ServletAction extends HttpServlet {
                 break;
             }
 
+            case "deleteWeatherInfo":{
+                String id=req.getParameter("id");
+                try {
+                    sqlOp.deleteWeatherInfo(id);
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "modifyWeatherInfo":{
+                String id=req.getParameter("id");
+                HashMap<String,String> map=new HashMap<>();
+                map.put("city", req.getParameter("city"));
+                map.put("day", req.getParameter("day"));
+                map.put("week",req.getParameter("week"));
+                map.put("wea",req.getParameter("wea"));
+                map.put("hightem",req.getParameter("hightem"));
+                map.put("lowtem",req.getParameter("lowtem"));
+                map.put("airLevel",req.getParameter("airLevel"));
+                map.put("winSpeed",req.getParameter("winSpeed"));
+                map.put("humidity",req.getParameter("humidity"));
+                try {
+                    sqlOp.modifyWeatherInfo(map,Integer.parseInt(id));
+                    jsonObject.put("ok",200);
+                } catch (SQLException | JSONException e) {
+                    e.printStackTrace();
+                }
+
+                break;
+            }
+
             default:{
                 break;
             }

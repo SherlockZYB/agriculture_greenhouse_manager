@@ -470,6 +470,19 @@ public class sqlOperator {
         return json;
     }
 
+    // 删除天气信息
+    public void deleteWeatherInfo(String id) throws SQLException {
+        String sql="delete from weatherInfo where id="+id;
+        System.out.println("deleteWeatherInfo："+sql);
+        this.statement.executeUpdate(sql);
+    }
+
+    public void modifyWeatherInfo(HashMap<String,String> map,int id) throws SQLException {
+        String sql="update weatherInfo set city='"+map.get("city")+"', day='"+map.get("day")+"',hightem='"+map.get("hightem")+"',lowtem='"+map.get("lowtem")+"',winSpeed='"+map.get("winSpeed")+"',humidity='"+map.get("humidity")+"'";
+        sql+=" where id="+id;
+        System.out.println("将要执行"+sql);
+        this.statement.executeUpdate(sql);
+    }
 
 
     // 断开链接。
